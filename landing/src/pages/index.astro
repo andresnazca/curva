@@ -1,0 +1,288 @@
+---
+import '../styles/global.css'
+
+const calLink = "https://cal.com" // TODO: Replace with actual Cal.com link
+const dolor = [
+  "Si yo no estoy, nada avanza.",
+  "Solo ciertas personas saben cómo se hacen las cosas.",
+  "Vendemos más, pero el caos también crece.",
+  "Compramos un sistema y nadie lo usa.",
+  "Siempre estamos apagando fuegos.",
+  "Mi equipo depende demasiado de mí para decidir.",
+]
+
+const pasos = [
+  { num: "01", title: "Entender", desc: "Nos metemos al negocio. Entendemos cómo funciona de verdad, no cómo debería funcionar en teoría." },
+  { num: "02", title: "Diagnosticar", desc: "Identificamos causas raíz. Convertimos problemas difusos en temas concretos y accionables." },
+  { num: "03", title: "Priorizar", desc: "Definimos qué atacar primero para generar impacto sin romper la operación." },
+  { num: "04", title: "Ordenar", desc: "Procesos, roles, estructura, herramientas. Todo lo que necesita claridad." },
+  { num: "05", title: "Implementar", desc: "No solo recomendamos. Acompañamos la ejecución y la adopción real." },
+  { num: "06", title: "Consolidar", desc: "Que los cambios se queden. Que el negocio funcione mejor sin depender de nosotros." },
+]
+
+const dimensiones = [
+  { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01", title: "Diagnóstico organizacional", desc: "Entender qué pasa realmente" },
+  { icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", title: "Digitalización", desc: "Tecnología con propósito, no por moda" },
+  { icon: "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z", title: "Procesos y estructura", desc: "Claridad donde hay improvisación" },
+  { icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4", title: "Gobernanza y dirección", desc: "Que el negocio no dependa de una persona" },
+  { icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z", title: "Cultura y liderazgo", desc: "Equipos más claros y responsables" },
+  { icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z", title: "Talento", desc: "Roles definidos, gente que sabe qué se espera" },
+  { icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z", title: "Claridad financiera", desc: "Mejor visibilidad para decidir mejor" },
+  { icon: "M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z", title: "Marketing y comunicación", desc: "Estrategia, contenido y presencia digital" },
+]
+
+const resultados = [
+  { num: "1,096", label: "facturas digitalizadas" },
+  { num: "869", label: "clientes estructurados en sistema" },
+  { num: "400+", label: "cuentas de crédito migradas" },
+  { num: "55+", label: "métricas nuevas disponibles" },
+  { num: "7", label: "colaboradores usando el sistema" },
+  { num: "285", label: "llamadas de soporte atendidas" },
+]
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="CURVA — Consultoría integral para empresas que quieren crecer con estructura, claridad y dirección." />
+    <title>CURVA — Consultoría de transformación empresarial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-white text-slate-900 font-sans antialiased">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#" class="text-xl font-bold tracking-tight text-slate-900">CURVA</a>
+        <a
+          href={calLink}
+          target="_blank"
+          rel="noopener"
+          class="hidden sm:inline-block text-sm font-medium bg-slate-900 text-white px-5 py-2.5 rounded-lg hover:bg-slate-800 transition-colors"
+        >
+          Agendar conversación
+        </a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="pt-32 pb-20 sm:pt-40 sm:pb-28 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-slate-900">
+          Tu empresa funciona.<br />
+          <span class="text-slate-400">Pero sabes que no puede seguir funcionando así.</span>
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          Ayudamos a empresas a pasar de operar por esfuerzo e intuición a crecer con estructura, claridad y dirección.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={calLink}
+            target="_blank"
+            rel="noopener"
+            class="inline-block text-base font-semibold bg-slate-900 text-white px-8 py-4 rounded-lg hover:bg-slate-800 transition-colors"
+          >
+            Agenda una conversación
+          </a>
+          <a
+            href="#caso"
+            class="inline-block text-base font-semibold text-slate-600 px-8 py-4 rounded-lg border border-slate-200 hover:border-slate-300 hover:text-slate-900 transition-colors"
+          >
+            Ver caso de éxito
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPEJO -->
+    <section class="py-20 sm:py-28 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-center">¿Te suena familiar?</h2>
+        <div class="mt-12 grid gap-4">
+          {dolor.map((d) => (
+            <div class="flex items-start gap-4 bg-white p-5 rounded-xl border border-slate-100">
+              <div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-slate-900 flex items-center justify-center">
+                <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <p class="text-lg text-slate-700 italic">"{d}"</p>
+            </div>
+          ))}
+        </div>
+        <p class="mt-10 text-center text-lg text-slate-600">
+          Si algo de esto describe tu día a día, <strong class="text-slate-900">no es un problema de esfuerzo. Es un problema de estructura.</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- MÉTODO -->
+    <section class="py-20 sm:py-28 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">No entregamos reportes. Construimos claridad.</h2>
+          <p class="mt-4 text-lg text-slate-600">Nuestra metodología es progresiva: entendemos antes de proponer, ordenamos antes de implementar.</p>
+        </div>
+        <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {pasos.map((paso) => (
+            <div class="relative">
+              <span class="text-5xl font-extrabold text-slate-100">{paso.num}</span>
+              <h3 class="mt-2 text-xl font-bold text-slate-900">{paso.title}</h3>
+              <p class="mt-2 text-slate-600 leading-relaxed">{paso.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- DIMENSIONES -->
+    <section class="py-20 sm:py-28 px-6 bg-slate-50">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Todo en una empresa está conectado.</h2>
+          <p class="mt-4 text-lg text-slate-600">No trabajamos dimensiones aisladas. Integramos negocio, operación, estructura, cultura, liderazgo y tecnología.</p>
+        </div>
+        <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {dimensiones.map((dim) => (
+            <div class="bg-white p-6 rounded-xl border border-slate-100 hover:border-slate-200 transition-colors">
+              <div class="w-10 h-10 rounded-lg bg-slate-900 flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={dim.icon} />
+                </svg>
+              </div>
+              <h3 class="mt-4 font-bold text-slate-900">{dim.title}</h3>
+              <p class="mt-1 text-sm text-slate-600">{dim.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CASO DE ÉXITO -->
+    <section id="caso" class="py-20 sm:py-28 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto">
+          <p class="text-sm font-semibold text-accent uppercase tracking-wider">Caso de éxito</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">De tarjetas de papel a una operación digital en 4 meses.</h2>
+          <p class="mt-4 text-lg text-slate-600">Empresa de retail y microcréditos en CDMX. Operación 100% manual: tarjetas físicas, libretas, chats, memoria de personas.</p>
+        </div>
+        <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {resultados.map((r) => (
+            <div class="text-center p-6 bg-slate-50 rounded-xl">
+              <p class="text-4xl font-extrabold text-slate-900">{r.num}</p>
+              <p class="mt-2 text-slate-600">{r.label}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-12 max-w-3xl mx-auto">
+          <div class="bg-slate-900 text-white p-8 sm:p-10 rounded-2xl">
+            <p class="text-lg sm:text-xl leading-relaxed">
+              "Lo que antes tomaba horas de buscar en tarjetas y preguntar a personas, hoy se resuelve en segundos dentro del sistema."
+            </p>
+            <div class="mt-6 flex items-center gap-3">
+              <div class="w-1 h-8 bg-accent rounded-full"></div>
+              <div>
+                <p class="font-semibold">Módulo 1 completado</p>
+                <p class="text-sm text-slate-400">Módulo 2 en curso: Gobernanza, KPIs, cultura organizacional</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS -->
+    <section class="py-20 sm:py-28 px-6 bg-slate-50">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-center">Quiénes somos</h2>
+        <div class="mt-16 grid sm:grid-cols-2 gap-10">
+          <!-- Andrés -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100">
+            <div class="w-16 h-16 rounded-full bg-slate-900 flex items-center justify-center text-white text-xl font-bold">AP</div>
+            <h3 class="mt-4 text-xl font-bold">Andrés Páez Cortazar</h3>
+            <p class="text-sm text-accent font-medium">Fundador</p>
+            <p class="mt-4 text-slate-600 leading-relaxed">
+              Lic. en Estrategia y Transformación de Negocios por el Tecnológico de Monterrey. Experiencia en inteligencia artificial aplicada a negocios.
+            </p>
+            <p class="mt-3 text-slate-600 leading-relaxed">
+              Ha liderado proyectos de estrategia para empresas líderes en consumo masivo y sector farmacéutico. Ponente en Global Money Week 2025 (OECD) sobre IA aplicada a finanzas personales.
+            </p>
+          </div>
+          <!-- Ivana -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100">
+            <div class="w-16 h-16 rounded-full bg-slate-900 flex items-center justify-center text-white text-xl font-bold">IG</div>
+            <h3 class="mt-4 text-xl font-bold">Ivana Garduño Mayo</h3>
+            <p class="text-sm text-accent font-medium">Co-líder</p>
+            <p class="mt-4 text-slate-600 leading-relaxed">
+              Pieza clave en la organización y ejecución de proyectos de transformación. Experiencia directa en gobernanza, estructura organizacional y acompañamiento a equipos directivos.
+            </p>
+            <p class="mt-3 text-slate-600 leading-relaxed">
+              Ha participado en proyectos de escenarios estratégicos para el sector farmacéutico y en iniciativas internacionales de educación financiera.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LO QUE NO SOMOS -->
+    <section class="py-20 sm:py-28 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-center">Lo que no vas a encontrar aquí</h2>
+        <div class="mt-12 space-y-4">
+          {[
+            "No somos una agencia que entrega presentaciones bonitas y se va.",
+            "No vendemos frameworks genéricos desconectados de tu realidad.",
+            "No proponemos revoluciones instantáneas que rompen la operación.",
+            "No metemos tecnología porque sí.",
+            "No hablamos de \"sinergias\" ni de \"llevar tu negocio al siguiente nivel\".",
+          ].map((item) => (
+            <div class="flex items-start gap-4">
+              <div class="mt-1.5 flex-shrink-0 w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center">
+                <svg class="w-3 h-3 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+              <p class="text-lg text-slate-700">{item}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-100">
+          <p class="text-xl text-slate-900 font-medium leading-relaxed text-center">
+            "Nuestra consultoría se mide por una cosa: <strong>que tu empresa funcione mejor después de trabajar con nosotros.</strong>"
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-20 sm:py-28 px-6 bg-slate-900 text-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Hablemos de lo que está pasando en tu empresa.</h2>
+        <p class="mt-6 text-lg text-slate-400 max-w-xl mx-auto">
+          Una conversación de 30 minutos. Sin compromiso. Sin venta agresiva. Solo entender si podemos ayudarte.
+        </p>
+        <a
+          href={calLink}
+          target="_blank"
+          rel="noopener"
+          class="mt-10 inline-block text-base font-semibold bg-white text-slate-900 px-8 py-4 rounded-lg hover:bg-slate-100 transition-colors"
+        >
+          Agendar conversación
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 px-6 border-t border-slate-100">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-slate-500">CURVA — Consultoría de transformación empresarial</p>
+        <p class="text-sm text-slate-400">Ciudad de México</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
