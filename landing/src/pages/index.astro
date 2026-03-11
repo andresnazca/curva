@@ -14,8 +14,47 @@ const calLink = "https://cal.com/andres-paez/30min"
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+      .reveal-delay-1 { transition-delay: 0.1s; }
+      .reveal-delay-2 { transition-delay: 0.2s; }
+      .reveal-delay-3 { transition-delay: 0.3s; }
+      .reveal-delay-4 { transition-delay: 0.4s; }
+      .reveal-delay-5 { transition-delay: 0.5s; }
+      .reveal-delay-6 { transition-delay: 0.6s; }
+      .reveal-delay-7 { transition-delay: 0.7s; }
+
+      .service-card { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease; }
+      .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+
+      .counter { font-variant-numeric: tabular-nums; }
+
+      .marquee { overflow: hidden; white-space: nowrap; }
+      .marquee-inner { display: inline-block; animation: marquee 30s linear infinite; }
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      .hero-gradient {
+        background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37,99,235,0.12), transparent);
+      }
+
+      .glow-card { position: relative; overflow: hidden; }
+      .glow-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.06), transparent 60%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .glow-card:hover::before { opacity: 1; }
+    </style>
   </head>
-  <body class="bg-white text-slate-900 font-sans antialiased">
+  <body class="bg-white text-slate-900 font-sans antialiased overflow-x-hidden">
 
     <!-- NAV -->
     <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-100">
@@ -33,249 +72,255 @@ const calLink = "https://cal.com/andres-paez/30min"
     </nav>
 
     <!-- HERO -->
-    <section class="pt-36 pb-24 sm:pt-44 sm:pb-32 px-6">
-      <div class="max-w-4xl mx-auto">
-        <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-6">Consultoría integral</p>
-        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">
-          Empresas que funcionan<br/>
-          por esfuerzo.<br/>
-          <span class="text-slate-300">Transformadas en empresas que funcionan por estructura.</span>
+    <section class="relative pt-36 pb-24 sm:pt-48 sm:pb-36 px-6 hero-gradient">
+      <div class="max-w-5xl mx-auto">
+        <div class="reveal">
+          <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-6">Consultoría integral</p>
+        </div>
+        <h1 class="reveal reveal-delay-1 text-5xl sm:text-6xl lg:text-8xl font-black leading-[1.0] tracking-tight">
+          Empresas que<br/>funcionan por esfuerzo.
         </h1>
-        <p class="mt-8 text-xl text-slate-500 max-w-2xl leading-relaxed">
-          Diagnóstico, digitalización, procesos, gobernanza, cultura, liderazgo y marketing — todo conectado en una sola consultoría.
-        </p>
-        <div class="mt-10 flex flex-col sm:flex-row gap-4">
-          <a href={calLink} target="_blank" rel="noopener" class="inline-block text-center text-base font-semibold bg-slate-900 text-white px-8 py-4 rounded-lg hover:bg-slate-800 transition-colors">
+        <h1 class="reveal reveal-delay-2 mt-2 text-5xl sm:text-6xl lg:text-8xl font-black leading-[1.0] tracking-tight text-slate-300">
+          Transformadas en<br/>empresas que funcionan<br/>por estructura.
+        </h1>
+        <div class="reveal reveal-delay-3 mt-12 max-w-2xl">
+          <p class="text-xl sm:text-2xl text-slate-500 leading-relaxed">
+            Diagnóstico, digitalización, procesos, gobernanza, cultura, liderazgo y marketing — todo conectado en una sola consultoría.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-4 mt-10 flex flex-col sm:flex-row gap-4">
+          <a href={calLink} target="_blank" rel="noopener" class="group inline-flex items-center justify-center gap-2 text-base font-semibold bg-slate-900 text-white px-8 py-4 rounded-full hover:bg-slate-800 transition-all hover:gap-3">
             Agendar diagnóstico gratuito
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
           </a>
-          <a href="#caso" class="inline-block text-center text-base font-semibold text-slate-500 px-8 py-4 rounded-lg border border-slate-200 hover:text-slate-900 transition-colors">
+          <a href="#caso" class="inline-flex items-center justify-center text-base font-semibold text-slate-500 px-8 py-4 rounded-full border border-slate-200 hover:text-slate-900 hover:border-slate-400 transition-all">
             Ver resultados reales
           </a>
         </div>
       </div>
     </section>
 
+    <!-- MARQUEE DE SERVICIOS -->
+    <div class="py-6 bg-slate-950 text-white">
+      <div class="marquee">
+        <span class="marquee-inner text-sm font-medium tracking-wider uppercase">
+          Diagnóstico organizacional&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Digitalización y ERPs&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Procesos y estructura&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Gobernanza&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Cultura y liderazgo&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Talento y roles&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Claridad financiera&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Marketing y comunicación&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Diagnóstico organizacional&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Digitalización y ERPs&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Procesos y estructura&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Gobernanza&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Cultura y liderazgo&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Talento y roles&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Claridad financiera&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Marketing y comunicación&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
+        </span>
+      </div>
+    </div>
+
     <!-- SERVICIOS -->
-    <section id="servicios" class="py-24 sm:py-32 px-6 bg-slate-950 text-white">
+    <section id="servicios" class="py-28 sm:py-36 px-6">
       <div class="max-w-6xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-6">Qué hacemos</p>
-          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Todo está conectado. Así lo trabajamos.</h2>
+        <div class="reveal max-w-3xl mb-20">
+          <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-4">Qué hacemos</p>
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tight leading-tight">Todo en una empresa está conectado. Así lo trabajamos.</h2>
         </div>
 
-        <!-- Bento grid -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-
-          <!-- Diagnóstico — span 2 cols -->
-          <div class="col-span-2 relative overflow-hidden rounded-2xl bg-white text-slate-900 p-8 sm:p-10 min-h-[260px] flex flex-col justify-between group hover:shadow-lg transition-shadow">
-            <div class="flex items-center justify-between">
-              <div class="w-14 h-14 rounded-2xl bg-slate-900 flex items-center justify-center">
-                <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+        <!-- Top row: 2 large cards -->
+        <div class="grid sm:grid-cols-2 gap-5 mb-5">
+          <div class="reveal reveal-delay-1 service-card glow-card rounded-3xl bg-slate-950 text-white p-10 min-h-[320px] flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <div class="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center">
+                <svg class="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
               </div>
-              <span class="text-6xl font-black text-slate-100 group-hover:text-slate-200 transition-colors">01</span>
+              <span class="text-8xl font-black text-white/5 leading-none">01</span>
             </div>
             <div>
-              <h3 class="text-xl sm:text-2xl font-bold mb-2">Diagnóstico organizacional</h3>
-              <p class="text-slate-500 leading-relaxed max-w-md">Entendemos cómo funciona tu negocio en la práctica — cómo vende, cobra, opera, decide y se organiza. Causas raíz, no síntomas.</p>
+              <h3 class="text-2xl font-bold mb-3">Diagnóstico organizacional</h3>
+              <p class="text-slate-400 leading-relaxed">Entendemos cómo funciona tu negocio en la práctica. Cómo vende, cobra, opera, decide y se organiza. Causas raíz, no síntomas.</p>
             </div>
           </div>
 
-          <!-- Digitalización — span 2 cols -->
-          <div class="col-span-2 relative overflow-hidden rounded-2xl bg-accent text-white p-8 sm:p-10 min-h-[260px] flex flex-col justify-between group hover:shadow-lg transition-shadow">
-            <div class="flex items-center justify-between">
-              <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center">
-                <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+          <div class="reveal reveal-delay-2 service-card glow-card rounded-3xl bg-accent text-white p-10 min-h-[320px] flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center">
+                <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
               </div>
-              <span class="text-6xl font-black text-white/20">02</span>
+              <span class="text-8xl font-black text-white/10 leading-none">02</span>
             </div>
             <div>
-              <h3 class="text-xl sm:text-2xl font-bold mb-2">Digitalización y ERPs</h3>
-              <p class="text-white/80 leading-relaxed max-w-md">Odoo, automatizaciones, herramientas que de verdad sirvan. Implementamos con el equipo — no solo recomendamos.</p>
+              <h3 class="text-2xl font-bold mb-3">Digitalización y ERPs</h3>
+              <p class="text-white/75 leading-relaxed">Odoo, automatizaciones, herramientas que de verdad sirvan. Implementamos con el equipo — no solo recomendamos.</p>
             </div>
           </div>
+        </div>
 
-          <!-- Procesos -->
-          <div class="col-span-1 rounded-2xl bg-slate-900 p-6 min-h-[220px] flex flex-col justify-between hover:bg-slate-800 transition-colors">
-            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4">
+        <!-- Middle row: 3 cards -->
+        <div class="grid sm:grid-cols-3 gap-5 mb-5">
+          <div class="reveal reveal-delay-3 service-card rounded-3xl bg-slate-50 p-8 min-h-[240px] flex flex-col justify-between border border-slate-100">
+            <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center mb-6">
               <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" /></svg>
             </div>
             <div>
-              <h3 class="font-bold text-lg mb-1">Procesos y estructura</h3>
-              <p class="text-slate-400 text-sm leading-relaxed">Flujos claros, roles definidos. Que nada dependa de la memoria de alguien.</p>
+              <h3 class="font-bold text-lg mb-2">Procesos y estructura</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">Flujos claros, roles definidos. Que nada dependa de la memoria de alguien.</p>
             </div>
           </div>
 
-          <!-- Gobernanza -->
-          <div class="col-span-1 rounded-2xl bg-slate-900 p-6 min-h-[220px] flex flex-col justify-between hover:bg-slate-800 transition-colors">
-            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4">
+          <div class="reveal reveal-delay-4 service-card rounded-3xl bg-slate-50 p-8 min-h-[240px] flex flex-col justify-between border border-slate-100">
+            <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center mb-6">
               <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21" /></svg>
             </div>
             <div>
-              <h3 class="font-bold text-lg mb-1">Gobernanza</h3>
-              <p class="text-slate-400 text-sm leading-relaxed">Quién decide qué. Estructura para que no todo pase por una sola persona.</p>
+              <h3 class="font-bold text-lg mb-2">Gobernanza y dirección</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">Quién decide qué. Estructura para que no todo dependa de una persona.</p>
             </div>
           </div>
 
-          <!-- Cultura -->
-          <div class="col-span-1 rounded-2xl bg-slate-900 p-6 min-h-[220px] flex flex-col justify-between hover:bg-slate-800 transition-colors">
-            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4">
+          <div class="reveal reveal-delay-5 service-card rounded-3xl bg-slate-50 p-8 min-h-[240px] flex flex-col justify-between border border-slate-100">
+            <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center mb-6">
               <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
             </div>
             <div>
-              <h3 class="font-bold text-lg mb-1">Cultura y liderazgo</h3>
-              <p class="text-slate-400 text-sm leading-relaxed">Comunicación, clima, diseño organizacional. El lado humano del cambio.</p>
+              <h3 class="font-bold text-lg mb-2">Cultura y liderazgo</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">Comunicación, clima, diseño organizacional. El lado humano del cambio.</p>
             </div>
           </div>
+        </div>
 
-          <!-- Talento -->
-          <div class="col-span-1 rounded-2xl bg-slate-900 p-6 min-h-[220px] flex flex-col justify-between hover:bg-slate-800 transition-colors">
-            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4">
+        <!-- Bottom row: 3 cards -->
+        <div class="grid sm:grid-cols-3 gap-5">
+          <div class="reveal reveal-delay-5 service-card rounded-3xl bg-slate-50 p-8 min-h-[240px] flex flex-col justify-between border border-slate-100">
+            <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center mb-6">
               <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
             </div>
             <div>
-              <h3 class="font-bold text-lg mb-1">Talento y roles</h3>
-              <p class="text-slate-400 text-sm leading-relaxed">Puestos definidos, onboarding. Que cada quien sepa qué se espera.</p>
+              <h3 class="font-bold text-lg mb-2">Talento y roles</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">Puestos definidos, onboarding, desarrollo. Que cada quien sepa qué se espera.</p>
             </div>
           </div>
 
-          <!-- Financiera — span 2 cols -->
-          <div class="col-span-2 rounded-2xl bg-white text-slate-900 p-8 flex items-center gap-8 hover:shadow-lg transition-shadow">
-            <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center flex-shrink-0">
-              <svg class="w-7 h-7 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+          <div class="reveal reveal-delay-6 service-card rounded-3xl bg-slate-50 p-8 min-h-[240px] flex flex-col justify-between border border-slate-100">
+            <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
             </div>
             <div>
-              <h3 class="text-xl font-bold mb-1">Claridad financiera</h3>
-              <p class="text-slate-500 leading-relaxed">Visibilidad de números, indicadores, control. Decisiones con datos, no con intuición.</p>
+              <h3 class="font-bold text-lg mb-2">Claridad financiera</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">Visibilidad de números, indicadores, control. Decisiones con datos, no intuición.</p>
             </div>
           </div>
 
-          <!-- Marketing — span 2 cols -->
-          <div class="col-span-2 rounded-2xl bg-white text-slate-900 p-8 flex items-center gap-8 hover:shadow-lg transition-shadow">
-            <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center flex-shrink-0">
-              <svg class="w-7 h-7 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46" /></svg>
+          <div class="reveal reveal-delay-7 service-card rounded-3xl bg-slate-50 p-8 min-h-[240px] flex flex-col justify-between border border-slate-100">
+            <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46" /></svg>
             </div>
             <div>
-              <h3 class="text-xl font-bold mb-1">Marketing y comunicación</h3>
-              <p class="text-slate-500 leading-relaxed">Estrategia, contenido, redes, páginas web, video. Que tu marca refleje lo que tu empresa es.</p>
+              <h3 class="font-bold text-lg mb-2">Marketing y comunicación</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">Estrategia, contenido, redes, web, video. Que tu marca refleje lo que tu empresa es.</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
     <!-- CÓMO TRABAJAMOS -->
-    <section class="py-24 px-6 bg-slate-50">
+    <section class="py-28 px-6 bg-slate-950 text-white">
       <div class="max-w-5xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-16 items-start">
-          <div>
-            <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-6">Cómo trabajamos</p>
-            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">No entregamos presentaciones y nos vamos. Construimos el cambio con el equipo.</h2>
-            <p class="mt-6 text-lg text-slate-500 leading-relaxed">Nos metemos al negocio. Entendemos la operación real. Resolvemos problemas en tiempo real. Y nos quedamos hasta que el cambio funcione en el día a día.</p>
-          </div>
-          <div class="space-y-6">
-            {[
-              { num: "01", title: "Diagnóstico", desc: "Entendemos la verdad del negocio: cómo vende, cobra, opera, decide y se organiza." },
-              { num: "02", title: "Ruta por módulos", desc: "Diseñamos un plan por fases. Primero lo urgente, luego lo estructural. Sin romper la operación." },
-              { num: "03", title: "Implementación real", desc: "Configuramos sistemas, diseñamos procesos, capacitamos equipos. No solo recomendamos — hacemos." },
-              { num: "04", title: "Acompañamiento", desc: "Soporte continuo, ajustes sobre la marcha, formación a líderes. Hasta que el cambio se sostenga solo." },
-            ].map((s) => (
-              <div class="flex gap-5 bg-white p-5 rounded-xl border border-slate-100">
-                <span class="text-sm font-bold text-accent mt-0.5 flex-shrink-0">{s.num}</span>
-                <div>
-                  <h3 class="font-bold mb-1">{s.title}</h3>
-                  <p class="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div class="reveal max-w-2xl mb-20">
+          <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-4">Cómo trabajamos</p>
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tight leading-tight">No entregamos reportes y nos vamos. Construimos el cambio.</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-0">
+          {[
+            { num: "01", title: "Diagnóstico", desc: "Entendemos la verdad del negocio: cómo vende, cobra, opera, decide." },
+            { num: "02", title: "Ruta por módulos", desc: "Plan por fases. Primero lo urgente, luego lo estructural." },
+            { num: "03", title: "Implementación", desc: "Configuramos sistemas, diseñamos procesos, capacitamos." },
+            { num: "04", title: "Acompañamiento", desc: "Soporte continuo hasta que el cambio se sostenga solo." },
+          ].map((s, i) => (
+            <div class={`reveal reveal-delay-${i + 1} p-8 border-t border-slate-800 sm:border-t-0 sm:border-l first:sm:border-l-0`}>
+              <span class="text-5xl font-black text-accent/30 block mb-4">{s.num}</span>
+              <h3 class="font-bold text-lg mb-2">{s.title}</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
     <!-- CASO DE ÉXITO -->
-    <section id="caso" class="py-24 sm:py-32 px-6">
+    <section id="caso" class="py-28 sm:py-36 px-6">
       <div class="max-w-5xl mx-auto">
-        <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-6">Caso real</p>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight max-w-3xl">De tarjetas de papel a una operación digital completa. En 4 meses.</h2>
-        <p class="mt-4 text-lg text-slate-500 max-w-2xl">Empresa de retail y microcréditos en Ciudad de México. Más de 800 clientes manejados con tarjetas físicas, libretas y memoria.</p>
+        <div class="reveal">
+          <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-4">Caso real</p>
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tight max-w-4xl leading-tight">De tarjetas de papel a una operación digital completa. En 4 meses.</h2>
+          <p class="mt-6 text-xl text-slate-500 max-w-2xl">Empresa de retail y microcréditos en Ciudad de México. Más de 800 clientes manejados con tarjetas físicas, libretas y memoria.</p>
+        </div>
 
-        <div class="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Números animados -->
+        <div class="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             { num: "1,096", label: "facturas digitalizadas" },
             { num: "869", label: "clientes en sistema" },
             { num: "400+", label: "créditos migrados" },
             { num: "55+", label: "métricas nuevas" },
-          ].map((r) => (
-            <div class="py-6 border-t-2 border-slate-900">
-              <p class="text-3xl sm:text-4xl font-black text-slate-900">{r.num}</p>
-              <p class="mt-1 text-sm text-slate-500">{r.label}</p>
+          ].map((r, i) => (
+            <div class={`reveal reveal-delay-${i + 1}`}>
+              <p class="counter text-5xl sm:text-6xl font-black text-slate-900">{r.num}</p>
+              <p class="mt-2 text-sm text-slate-500 uppercase tracking-wider">{r.label}</p>
             </div>
           ))}
         </div>
 
-        <div class="mt-14 grid sm:grid-cols-3 gap-6">
-          <div class="bg-slate-50 p-6 rounded-xl">
-            <h3 class="font-bold mb-3">Sistemas</h3>
-            <ul class="space-y-2 text-slate-600 text-sm">
-              <li>— ERP implementado (Odoo)</li>
-              <li>— Sistema de crédito digitalizado</li>
-              <li>— Flujos de venta y cobranza</li>
-            </ul>
-          </div>
-          <div class="bg-slate-50 p-6 rounded-xl">
-            <h3 class="font-bold mb-3">Organización</h3>
-            <ul class="space-y-2 text-slate-600 text-sm">
-              <li>— Gobernanza de fundadores</li>
-              <li>— Roles y organigrama</li>
-              <li>— Reclutamiento estructurado</li>
-            </ul>
-          </div>
-          <div class="bg-slate-50 p-6 rounded-xl">
-            <h3 class="font-bold mb-3">Acompañamiento</h3>
-            <ul class="space-y-2 text-slate-600 text-sm">
-              <li>— Soporte 24/7 al equipo</li>
-              <li>— 285 llamadas atendidas</li>
-              <li>— Formación a fundadores</li>
-            </ul>
-          </div>
+        <!-- Detalles en 3 columnas -->
+        <div class="mt-16 grid sm:grid-cols-3 gap-6">
+          {[
+            { title: "Sistemas", items: ["ERP implementado (Odoo)", "Sistema de crédito digitalizado", "Flujos de venta y cobranza"] },
+            { title: "Organización", items: ["Gobernanza de fundadores", "Roles y organigrama", "Reclutamiento estructurado"] },
+            { title: "Acompañamiento", items: ["Soporte 24/7 al equipo", "285 llamadas atendidas", "Formación a fundadores"] },
+          ].map((col, i) => (
+            <div class={`reveal reveal-delay-${i + 1} bg-slate-50 p-8 rounded-2xl`}>
+              <h3 class="font-bold text-lg mb-4">{col.title}</h3>
+              <ul class="space-y-3">
+                {col.items.map((item) => (
+                  <li class="flex gap-3 text-slate-600 text-sm">
+                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div class="mt-12 bg-slate-950 text-white p-10 rounded-2xl">
-          <p class="text-xl sm:text-2xl leading-relaxed font-medium">
-            "Lo que antes tomaba horas buscando en tarjetas y preguntando a personas, hoy se resuelve en segundos."
+        <!-- Quote -->
+        <div class="reveal mt-16 bg-slate-950 text-white p-10 sm:p-14 rounded-3xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 text-[200px] font-black text-white/[0.03] leading-none select-none">"</div>
+          <p class="relative text-2xl sm:text-3xl leading-snug font-medium max-w-3xl">
+            Lo que antes tomaba horas buscando en tarjetas y preguntando a personas, hoy se resuelve en segundos.
           </p>
-          <p class="mt-4 text-slate-400 text-sm">Proyecto en curso desde febrero 2025</p>
+          <p class="relative mt-6 text-slate-500 text-sm">Proyecto en curso desde febrero 2025</p>
         </div>
       </div>
     </section>
 
     <!-- EQUIPO -->
-    <section id="equipo" class="py-24 px-6 bg-slate-50">
+    <section id="equipo" class="py-28 px-6 bg-slate-50">
       <div class="max-w-5xl mx-auto">
-        <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-6">Equipo</p>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-14">Quiénes están detrás de CURVA.</h2>
+        <div class="reveal">
+          <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-4">Equipo</p>
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tight mb-16">Quiénes están<br/>detrás de CURVA.</h2>
+        </div>
 
         <div class="grid sm:grid-cols-2 gap-12">
-          <!-- Andrés -->
-          <div class="flex gap-6">
-            <div class="w-24 h-24 flex-shrink-0 overflow-hidden rounded-xl bg-slate-200">
+          <div class="reveal reveal-delay-1 flex gap-6">
+            <div class="w-20 h-20 flex-shrink-0 overflow-hidden rounded-2xl bg-slate-200 ring-2 ring-white shadow-lg">
               <img src="/andres.jpg" alt="Andrés Páez Cortazar" class="w-full h-full object-cover object-top" />
             </div>
             <div>
               <h3 class="font-bold text-lg">Andrés Páez Cortazar</h3>
-              <p class="text-accent text-sm font-medium">Fundador</p>
+              <p class="text-accent text-sm font-semibold">Fundador</p>
               <p class="mt-3 text-slate-600 text-sm leading-relaxed">Lic. en Estrategia y Transformación de Negocios, Tec de Monterrey. Experiencia en IA aplicada a negocios. Ha liderado proyectos de estrategia para empresas de consumo masivo y sector farmacéutico. Ponente en Global Money Week 2025 (OECD).</p>
             </div>
           </div>
-          <!-- Ivana -->
-          <div class="flex gap-6">
-            <div class="w-24 h-24 flex-shrink-0 overflow-hidden rounded-xl bg-slate-200">
+          <div class="reveal reveal-delay-2 flex gap-6">
+            <div class="w-20 h-20 flex-shrink-0 overflow-hidden rounded-2xl bg-slate-200 ring-2 ring-white shadow-lg">
               <img src="/ivana.jpg" alt="Ivana Garduño Mayo" class="w-full h-full object-cover object-top" />
             </div>
             <div>
               <h3 class="font-bold text-lg">Ivana Garduño Mayo</h3>
-              <p class="text-accent text-sm font-medium">Co-líder</p>
+              <p class="text-accent text-sm font-semibold">Co-líder</p>
               <p class="mt-3 text-slate-600 text-sm leading-relaxed">Clave en la organización y ejecución de proyectos de transformación. Experiencia en gobernanza, estructura organizacional y acompañamiento a equipos directivos. Ha participado en proyectos de escenarios estratégicos e iniciativas internacionales.</p>
             </div>
           </div>
@@ -284,13 +329,15 @@ const calLink = "https://cal.com/andres-paez/30min"
     </section>
 
     <!-- PARA QUIÉN -->
-    <section class="py-24 px-6 bg-slate-950 text-white">
+    <section class="py-28 px-6 bg-slate-950 text-white">
       <div class="max-w-4xl mx-auto">
-        <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-6">Para quién es esto</p>
-        <h2 class="text-3xl sm:text-4xl font-bold leading-tight mb-14">
-          Empresas que ya operan y ya venden, pero que llegaron a un punto donde la estructura no aguanta lo que el negocio necesita.
-        </h2>
-        <div class="grid sm:grid-cols-2 gap-6">
+        <div class="reveal">
+          <p class="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">Para quién es esto</p>
+          <h2 class="text-4xl sm:text-5xl font-black leading-tight mb-16">
+            Empresas que ya operan y ya venden, pero que llegaron a un punto donde la estructura no aguanta.
+          </h2>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-8">
           {[
             "El fundador carga todo y el negocio no funciona sin él.",
             "Los procesos viven en la cabeza de ciertas personas.",
@@ -298,10 +345,10 @@ const calLink = "https://cal.com/andres-paez/30min"
             "Se compraron sistemas pero nadie los usa bien.",
             "Hay voluntad de crecer pero falta estructura.",
             "Se necesita profesionalizar sin perder la esencia.",
-          ].map((item) => (
-            <div class="flex gap-3 items-start">
-              <span class="mt-1.5 w-2 h-2 rounded-full bg-accent flex-shrink-0"></span>
-              <p class="text-slate-300">{item}</p>
+          ].map((item, i) => (
+            <div class={`reveal reveal-delay-${i + 1} flex gap-4 items-start`}>
+              <span class="mt-2 w-3 h-3 rounded-full bg-accent flex-shrink-0"></span>
+              <p class="text-lg text-slate-300 leading-relaxed">{item}</p>
             </div>
           ))}
         </div>
@@ -309,16 +356,17 @@ const calLink = "https://cal.com/andres-paez/30min"
     </section>
 
     <!-- CTA FINAL -->
-    <section class="py-24 sm:py-32 px-6">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
-          Hablemos de tu empresa.
+    <section class="py-28 sm:py-36 px-6">
+      <div class="reveal max-w-3xl mx-auto text-center">
+        <h2 class="text-5xl sm:text-6xl font-black tracking-tight leading-tight">
+          Hablemos de<br/>tu empresa.
         </h2>
-        <p class="mt-6 text-lg text-slate-500 max-w-xl mx-auto">
+        <p class="mt-8 text-xl text-slate-500 max-w-xl mx-auto">
           30 minutos de diagnóstico. Sin compromiso. Entendemos tu situación y te decimos con honestidad si podemos ayudarte.
         </p>
-        <a href={calLink} target="_blank" rel="noopener" class="mt-10 inline-block text-base font-semibold bg-slate-900 text-white px-10 py-5 rounded-lg hover:bg-slate-800 transition-colors">
+        <a href={calLink} target="_blank" rel="noopener" class="group mt-12 inline-flex items-center gap-2 text-lg font-semibold bg-slate-900 text-white px-10 py-5 rounded-full hover:bg-slate-800 transition-all hover:gap-3 hover:shadow-xl">
           Agendar conversación
+          <svg class="w-5 h-5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
         </a>
       </div>
     </section>
@@ -330,6 +378,27 @@ const calLink = "https://cal.com/andres-paez/30min"
         <p class="text-sm text-slate-400">Consultoría empresarial — Ciudad de México</p>
       </div>
     </footer>
+
+    <!-- SCROLL REVEAL + GLOW EFFECT -->
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      document.querySelectorAll('.glow-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', ((e.clientX - rect.left) / rect.width * 100) + '%');
+          card.style.setProperty('--mouse-y', ((e.clientY - rect.top) / rect.height * 100) + '%');
+        });
+      });
+    </script>
 
   </body>
 </html>
