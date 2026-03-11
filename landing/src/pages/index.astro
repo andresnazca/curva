@@ -15,22 +15,18 @@ const calLink = "https://cal.com/andres-paez/30min"
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <style>
-      .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+      .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
       .reveal.visible { opacity: 1; transform: translateY(0); }
-      .reveal-d1 { transition-delay: 0.1s; } .reveal-d2 { transition-delay: 0.2s; }
-      .reveal-d3 { transition-delay: 0.3s; } .reveal-d4 { transition-delay: 0.4s; }
-      .reveal-d5 { transition-delay: 0.5s; } .reveal-d6 { transition-delay: 0.6s; }
+      .reveal-d1 { transition-delay: 0.08s; } .reveal-d2 { transition-delay: 0.16s; }
+      .reveal-d3 { transition-delay: 0.24s; } .reveal-d4 { transition-delay: 0.32s; }
+      .reveal-d5 { transition-delay: 0.4s; } .reveal-d6 { transition-delay: 0.48s; }
 
       .card-lift { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease; }
-      .card-lift:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
-
-      .counter { font-variant-numeric: tabular-nums; }
+      .card-lift:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
 
       .marquee { overflow: hidden; white-space: nowrap; }
       .marquee-track { display: inline-block; animation: scroll 25s linear infinite; }
       @keyframes scroll { to { transform: translateX(-50%); } }
-
-      .hero-glow { background: radial-gradient(ellipse 70% 40% at 50% -10%, rgba(37,99,235,0.1), transparent); }
 
       .glow-card { position: relative; overflow: hidden; }
       .glow-card::after {
@@ -42,9 +38,18 @@ const calLink = "https://cal.com/andres-paez/30min"
 
       .gradient-text { background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
+      /* Carousel */
+      .cases-track { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .cases-track::-webkit-scrollbar { display: none; }
+      .case-card { scroll-snap-align: start; flex: 0 0 85%; max-width: 480px; }
+      @media (min-width: 640px) { .case-card { flex: 0 0 45%; } }
+      @media (min-width: 1024px) { .case-card { flex: 0 0 32%; } }
+
+      .dot-active { background-color: #2563eb; }
+
       @media (max-width: 640px) {
-        .hero-h1 { font-size: 2.75rem; }
-        .hero-h1-gray { font-size: 2.25rem; }
+        .hero-h1 { font-size: 2.25rem; }
+        .hero-sub { font-size: 1.75rem; }
       }
     </style>
   </head>
@@ -52,116 +57,108 @@ const calLink = "https://cal.com/andres-paez/30min"
 
     <!-- NAV -->
     <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-100">
-      <div class="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
-        <a href="#" class="text-2xl font-black tracking-tighter">CURVA<span class="text-accent">.</span></a>
+      <div class="max-w-6xl mx-auto px-5 py-3.5 flex justify-between items-center">
+        <a href="#" class="text-xl font-black tracking-tighter">CURVA<span class="text-accent">.</span></a>
         <div class="flex items-center gap-5">
           <a href="#servicios" class="hidden md:inline text-sm text-slate-500 hover:text-slate-900 transition-colors">Servicios</a>
-          <a href="#caso" class="hidden md:inline text-sm text-slate-500 hover:text-slate-900 transition-colors">Resultados</a>
+          <a href="#casos" class="hidden md:inline text-sm text-slate-500 hover:text-slate-900 transition-colors">Resultados</a>
           <a href="#equipo" class="hidden md:inline text-sm text-slate-500 hover:text-slate-900 transition-colors">Equipo</a>
-          <a href={calLink} target="_blank" rel="noopener" class="text-sm font-semibold bg-slate-900 text-white px-5 py-2.5 rounded-full hover:bg-slate-800 transition-colors">
+          <a href={calLink} target="_blank" rel="noopener" class="text-sm font-semibold bg-slate-900 text-white px-5 py-2 rounded-full hover:bg-slate-800 transition-colors">
             Conversemos
           </a>
         </div>
       </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="relative pt-32 pb-20 sm:pt-44 sm:pb-32 px-5 hero-glow">
+    <!-- HERO — compact, fits viewport -->
+    <section class="relative pt-24 pb-12 sm:pt-28 sm:pb-16 px-5">
       <div class="max-w-5xl mx-auto">
-        <p class="reveal text-sm font-semibold text-accent uppercase tracking-widest mb-5">Consultoría integral — CDMX</p>
-        <h1 class="reveal reveal-d1 hero-h1 text-5xl sm:text-6xl lg:text-[5.5rem] font-black leading-[1.02] tracking-tight">
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-400 mb-6">
+          <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>Proyecto activo desde 2025</span>
+          <span>Tec de Monterrey</span>
+          <span>Global Money Week — OECD</span>
+        </div>
+        <h1 class="hero-h1 text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tight">
           Empresas que funcionan<br class="hidden sm:block"/>por esfuerzo.
         </h1>
-        <p class="reveal reveal-d2 hero-h1-gray mt-1 text-4xl sm:text-5xl lg:text-[4.5rem] font-black leading-[1.05] tracking-tight text-slate-300">
+        <p class="hero-sub mt-1 text-3xl sm:text-4xl lg:text-[3.25rem] font-black leading-[1.08] tracking-tight text-slate-300">
           Transformadas en empresas<br class="hidden sm:block"/>que funcionan por estructura.
         </p>
-        <p class="reveal reveal-d3 mt-10 text-lg sm:text-xl text-slate-500 max-w-xl leading-relaxed">
-          Diagnóstico, digitalización, procesos, gobernanza, cultura, liderazgo y marketing — integrados en una sola consultoría.
+        <p class="mt-6 text-base sm:text-lg text-slate-500 max-w-lg leading-relaxed">
+          Diagnóstico, digitalización, procesos, gobernanza, cultura, liderazgo y marketing — en una sola consultoría.
         </p>
-        <div class="reveal reveal-d4 mt-8 flex flex-col sm:flex-row gap-3">
-          <a href={calLink} target="_blank" rel="noopener" class="group inline-flex items-center justify-center gap-2 text-base font-semibold bg-slate-900 text-white px-7 py-4 rounded-full hover:bg-slate-800 transition-all hover:gap-3">
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a href={calLink} target="_blank" rel="noopener" class="group inline-flex items-center justify-center gap-2 text-sm font-semibold bg-slate-900 text-white px-6 py-3.5 rounded-full hover:bg-slate-800 transition-all hover:gap-3">
             Agendar diagnóstico gratuito
             <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
           </a>
-          <a href="#caso" class="inline-flex items-center justify-center text-base font-semibold text-slate-500 px-7 py-4 rounded-full border border-slate-200 hover:text-slate-900 hover:border-slate-400 transition-all">
+          <a href="#casos" class="inline-flex items-center justify-center text-sm font-semibold text-slate-500 px-6 py-3.5 rounded-full border border-slate-200 hover:text-slate-900 hover:border-slate-400 transition-all">
             Ver resultados reales
           </a>
-        </div>
-        <!-- Trust bar -->
-        <div class="reveal reveal-d5 mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-slate-400">
-          <span class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-green-500"></span>
-            Proyecto activo desde 2025
-          </span>
-          <span>Tec de Monterrey</span>
-          <span>Global Money Week — OECD</span>
         </div>
       </div>
     </section>
 
     <!-- MARQUEE -->
-    <div class="py-5 bg-slate-950 text-white select-none">
+    <div class="py-4 bg-slate-950 text-white select-none">
       <div class="marquee">
-        <span class="marquee-track text-[13px] font-medium tracking-widest uppercase text-slate-400">
+        <span class="marquee-track text-[12px] font-medium tracking-widest uppercase text-slate-400">
           Diagnóstico&nbsp;&nbsp;/&nbsp;&nbsp;Digitalización&nbsp;&nbsp;/&nbsp;&nbsp;ERPs&nbsp;&nbsp;/&nbsp;&nbsp;Procesos&nbsp;&nbsp;/&nbsp;&nbsp;Gobernanza&nbsp;&nbsp;/&nbsp;&nbsp;Cultura&nbsp;&nbsp;/&nbsp;&nbsp;Liderazgo&nbsp;&nbsp;/&nbsp;&nbsp;Talento&nbsp;&nbsp;/&nbsp;&nbsp;Finanzas&nbsp;&nbsp;/&nbsp;&nbsp;Marketing&nbsp;&nbsp;/&nbsp;&nbsp;Automatización&nbsp;&nbsp;/&nbsp;&nbsp;Diagnóstico&nbsp;&nbsp;/&nbsp;&nbsp;Digitalización&nbsp;&nbsp;/&nbsp;&nbsp;ERPs&nbsp;&nbsp;/&nbsp;&nbsp;Procesos&nbsp;&nbsp;/&nbsp;&nbsp;Gobernanza&nbsp;&nbsp;/&nbsp;&nbsp;Cultura&nbsp;&nbsp;/&nbsp;&nbsp;Liderazgo&nbsp;&nbsp;/&nbsp;&nbsp;Talento&nbsp;&nbsp;/&nbsp;&nbsp;Finanzas&nbsp;&nbsp;/&nbsp;&nbsp;Marketing&nbsp;&nbsp;/&nbsp;&nbsp;Automatización&nbsp;&nbsp;/&nbsp;&nbsp;
         </span>
       </div>
     </div>
 
     <!-- SERVICIOS -->
-    <section id="servicios" class="py-24 sm:py-32 px-5">
+    <section id="servicios" class="py-20 sm:py-24 px-5">
       <div class="max-w-6xl mx-auto">
-        <div class="reveal max-w-2xl mb-16">
-          <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-3">Qué hacemos</p>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">Todo en una empresa está conectado.<br/><span class="text-slate-400">Así lo trabajamos.</span></h2>
+        <div class="reveal max-w-2xl mb-12">
+          <p class="text-xs font-semibold text-accent uppercase tracking-widest mb-2">Qué hacemos</p>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">Todo en una empresa está conectado.<br/><span class="text-slate-400">Así lo trabajamos.</span></h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <!-- Diagnóstico -->
-          <div class="reveal reveal-d1 card-lift glow-card rounded-[20px] bg-slate-950 text-white p-8 sm:p-10 min-h-[300px] flex flex-col justify-between">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+          <div class="reveal reveal-d1 card-lift glow-card rounded-2xl bg-slate-950 text-white p-7 sm:p-8 flex flex-col justify-between min-h-[240px]">
             <div class="flex items-start justify-between">
-              <div class="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center">
-                <svg class="w-7 h-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+              <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
+                <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
               </div>
-              <span class="text-7xl font-black text-white/[0.04] leading-none">01</span>
+              <span class="text-6xl font-black text-white/[0.04] leading-none">01</span>
             </div>
             <div>
-              <h3 class="text-xl font-bold mb-2">Diagnóstico organizacional</h3>
-              <p class="text-slate-400 text-[15px] leading-relaxed">Entendemos cómo funciona tu negocio de verdad — cómo vende, cobra, opera, decide. Causas raíz, no síntomas.</p>
+              <h3 class="text-lg font-bold mb-1.5">Diagnóstico organizacional</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">Entendemos cómo funciona tu negocio de verdad — cómo vende, cobra, opera, decide.</p>
             </div>
           </div>
-          <!-- Digitalización -->
-          <div class="reveal reveal-d2 card-lift glow-card rounded-[20px] bg-accent text-white p-8 sm:p-10 min-h-[300px] flex flex-col justify-between">
+          <div class="reveal reveal-d2 card-lift glow-card rounded-2xl bg-accent text-white p-7 sm:p-8 flex flex-col justify-between min-h-[240px]">
             <div class="flex items-start justify-between">
-              <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center">
-                <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               </div>
-              <span class="text-7xl font-black text-white/10 leading-none">02</span>
+              <span class="text-6xl font-black text-white/10 leading-none">02</span>
             </div>
             <div>
-              <h3 class="text-xl font-bold mb-2">Digitalización y ERPs</h3>
-              <p class="text-white/75 text-[15px] leading-relaxed">Odoo, automatizaciones, herramientas reales. Implementamos con el equipo — no solo recomendamos.</p>
+              <h3 class="text-lg font-bold mb-1.5">Digitalización y ERPs</h3>
+              <p class="text-white/75 text-sm leading-relaxed">Odoo, automatizaciones, herramientas reales. Implementamos con el equipo.</p>
             </div>
           </div>
         </div>
 
-        <!-- 6 cards medianas -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
           {[
-            { icon: "M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z", title: "Procesos y estructura", desc: "Flujos claros. Roles definidos. Sin depender de memoria." },
-            { icon: "M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21", title: "Gobernanza", desc: "Toma de decisiones con estructura, no con urgencia." },
-            { icon: "M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z", title: "Cultura y liderazgo", desc: "El lado humano del cambio organizacional." },
-            { icon: "M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z", title: "Talento y roles", desc: "Cada persona sabe qué se espera de ella." },
-            { icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z", title: "Claridad financiera", desc: "Decisiones con datos, no con intuición." },
-            { icon: "M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46", title: "Marketing", desc: "Estrategia, contenido, redes, web, video." },
+            { icon: "M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z", title: "Procesos", desc: "Flujos claros. Roles definidos." },
+            { icon: "M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21", title: "Gobernanza", desc: "Decisiones con estructura." },
+            { icon: "M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z", title: "Cultura y liderazgo", desc: "El lado humano del cambio." },
+            { icon: "M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z", title: "Talento y roles", desc: "Cada persona sabe su rol." },
+            { icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z", title: "Claridad financiera", desc: "Decisiones con datos reales." },
+            { icon: "M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46", title: "Marketing", desc: "Estrategia, contenido, redes, video." },
           ].map((s, i) => (
-            <div class={`reveal reveal-d${Math.min(i + 1, 6)} card-lift rounded-[20px] bg-slate-50 p-7 min-h-[200px] flex flex-col justify-between border border-slate-100`}>
-              <div class="w-11 h-11 rounded-xl bg-slate-900 flex items-center justify-center mb-5">
+            <div class={`reveal reveal-d${Math.min(i + 1, 6)} card-lift rounded-2xl bg-slate-50 p-6 min-h-[170px] flex flex-col justify-between border border-slate-100`}>
+              <div class="w-10 h-10 rounded-lg bg-slate-900 flex items-center justify-center mb-4">
                 <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={s.icon}/></svg>
               </div>
               <div>
-                <h3 class="font-bold text-[15px] mb-1">{s.title}</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
+                <h3 class="font-bold text-sm mb-0.5">{s.title}</h3>
+                <p class="text-slate-500 text-[13px] leading-relaxed">{s.desc}</p>
               </div>
             </div>
           ))}
@@ -170,11 +167,11 @@ const calLink = "https://cal.com/andres-paez/30min"
     </section>
 
     <!-- CÓMO TRABAJAMOS -->
-    <section class="py-24 px-5 bg-slate-950 text-white">
+    <section class="py-20 px-5 bg-slate-950 text-white">
       <div class="max-w-5xl mx-auto">
-        <div class="reveal max-w-2xl mb-16">
-          <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-3">Cómo trabajamos</p>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">No entregamos reportes.<br/><span class="text-slate-500">Construimos el cambio.</span></h2>
+        <div class="reveal max-w-2xl mb-12">
+          <p class="text-xs font-semibold text-accent uppercase tracking-widest mb-2">Cómo trabajamos</p>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">No entregamos reportes.<br/><span class="text-slate-500">Construimos el cambio.</span></h2>
         </div>
 
         <div class="grid sm:grid-cols-4 gap-px bg-slate-800 rounded-2xl overflow-hidden">
@@ -184,9 +181,9 @@ const calLink = "https://cal.com/andres-paez/30min"
             { num: "03", title: "Implementación", desc: "Configuramos, diseñamos, capacitamos." },
             { num: "04", title: "Acompañamiento", desc: "Hasta que el cambio se sostenga solo." },
           ].map((s, i) => (
-            <div class={`reveal reveal-d${i + 1} bg-slate-950 p-8`}>
-              <span class="text-4xl font-black gradient-text block mb-5">{s.num}</span>
-              <h3 class="font-bold text-lg mb-2">{s.title}</h3>
+            <div class={`reveal reveal-d${i + 1} bg-slate-950 p-7`}>
+              <span class="text-3xl font-black gradient-text block mb-4">{s.num}</span>
+              <h3 class="font-bold text-base mb-1.5">{s.title}</h3>
               <p class="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
@@ -194,89 +191,167 @@ const calLink = "https://cal.com/andres-paez/30min"
       </div>
     </section>
 
-    <!-- CASO DE ÉXITO -->
-    <section id="caso" class="py-24 sm:py-32 px-5">
-      <div class="max-w-5xl mx-auto">
-        <div class="reveal">
-          <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-3">Caso real</p>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight max-w-4xl leading-tight">
-            De tarjetas de papel a operación digital.<br/><span class="text-slate-300">En 4 meses.</span>
-          </h2>
-          <p class="mt-5 text-lg text-slate-500 max-w-xl">Empresa de retail y microcréditos en CDMX. +800 clientes manejados con tarjetas físicas, libretas y memoria.</p>
+    <!-- CASOS DE ÉXITO — Carousel -->
+    <section id="casos" class="py-20 sm:py-24 px-5">
+      <div class="max-w-6xl mx-auto">
+        <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10">
+          <div>
+            <p class="text-xs font-semibold text-accent uppercase tracking-widest mb-2">Resultados reales</p>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">Proyectos que hablan<br/><span class="text-slate-400">por sí solos.</span></h2>
+          </div>
+          <div class="flex gap-2 mt-4 sm:mt-0">
+            <button id="prev-case" aria-label="Anterior" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center hover:border-slate-400 transition-colors">
+              <svg class="w-4 h-4 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+            </button>
+            <button id="next-case" aria-label="Siguiente" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center hover:border-slate-400 transition-colors">
+              <svg class="w-4 h-4 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+            </button>
+          </div>
         </div>
 
-        <div class="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
-          {[
-            { num: "1,096", label: "Facturas digitalizadas" },
-            { num: "869", label: "Clientes en sistema" },
-            { num: "400+", label: "Créditos migrados" },
-            { num: "55+", label: "Métricas nuevas" },
-          ].map((r, i) => (
-            <div class={`reveal reveal-d${i + 1}`}>
-              <p class="counter text-5xl sm:text-6xl font-black text-slate-900 leading-none">{r.num}</p>
-              <div class="mt-3 w-8 h-0.5 bg-accent rounded-full"></div>
-              <p class="mt-3 text-sm text-slate-500">{r.label}</p>
+        <div id="cases-track" class="cases-track pb-4">
+          <!-- CASO 1: Retail + microcréditos -->
+          <div class="case-card">
+            <div class="card-lift rounded-2xl border border-slate-100 bg-white p-7 h-full flex flex-col">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="px-2.5 py-1 rounded-full bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-wide">Consultoría integral</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">Retail y microcréditos — CDMX</h3>
+              <p class="text-slate-500 text-sm leading-relaxed mb-6">De tarjetas de papel a operación digital completa. ERP, crédito digitalizado, gobernanza y estructura organizacional.</p>
+              <div class="grid grid-cols-2 gap-4 mt-auto">
+                <div>
+                  <p class="text-2xl font-black">1,096</p>
+                  <p class="text-xs text-slate-400 mt-0.5">Facturas digitalizadas</p>
+                </div>
+                <div>
+                  <p class="text-2xl font-black">869</p>
+                  <p class="text-xs text-slate-400 mt-0.5">Clientes en sistema</p>
+                </div>
+                <div>
+                  <p class="text-2xl font-black">400+</p>
+                  <p class="text-xs text-slate-400 mt-0.5">Créditos migrados</p>
+                </div>
+                <div>
+                  <p class="text-2xl font-black">4 meses</p>
+                  <p class="text-xs text-slate-400 mt-0.5">De implementación</p>
+                </div>
+              </div>
+              <div class="mt-6 pt-5 border-t border-slate-100">
+                <p class="text-sm text-slate-600 italic">"Lo que antes tomaba horas buscando en tarjetas, hoy se resuelve en segundos."</p>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div class="mt-16 grid sm:grid-cols-3 gap-4">
-          {[
-            { title: "Sistemas", items: ["ERP implementado (Odoo)", "Crédito digitalizado", "Flujos de venta y cobranza"] },
-            { title: "Organización", items: ["Gobernanza de fundadores", "Roles y organigrama", "Reclutamiento estructurado"] },
-            { title: "Acompañamiento", items: ["Soporte 24/7", "285 llamadas atendidas", "Formación a fundadores"] },
-          ].map((col, i) => (
-            <div class={`reveal reveal-d${i + 1} bg-slate-50 p-7 rounded-2xl`}>
-              <h3 class="font-bold mb-4">{col.title}</h3>
-              <ul class="space-y-2.5">
-                {col.items.map((item) => (
-                  <li class="flex gap-2.5 text-slate-600 text-sm">
-                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+          <!-- CASO 2: Automatización con IA — Mensajería -->
+          <div class="case-card">
+            <div class="card-lift rounded-2xl border border-slate-100 bg-white p-7 h-full flex flex-col">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 text-[11px] font-semibold uppercase tracking-wide">Automatización + IA</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">Agente IA para mensajería</h3>
+              <p class="text-slate-500 text-sm leading-relaxed mb-6">Construimos un agente con inteligencia artificial para atención a clientes y cotización automática de envíos. Integrado al flujo real de operación de la empresa.</p>
+              <div class="grid grid-cols-2 gap-4 mt-auto">
+                <div>
+                  <p class="text-2xl font-black">24/7</p>
+                  <p class="text-xs text-slate-400 mt-0.5">Atención automatizada</p>
+                </div>
+                <div>
+                  <p class="text-2xl font-black">Auto</p>
+                  <p class="text-xs text-slate-400 mt-0.5">Cotizaciones de envío</p>
+                </div>
+              </div>
+              <div class="mt-6 pt-5 border-t border-slate-100">
+                <p class="text-sm text-slate-600 italic">"Los clientes reciben respuesta inmediata y cotización sin esperar a nadie."</p>
+              </div>
             </div>
-          ))}
+          </div>
+
+          <!-- CASO 3: Marketing — Green Earth -->
+          <div class="case-card">
+            <div class="card-lift rounded-2xl border border-slate-100 bg-white p-7 h-full flex flex-col">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="px-2.5 py-1 rounded-full bg-green-500/10 text-green-600 text-[11px] font-semibold uppercase tracking-wide">Marketing</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">Green Earth — Videos de marca personal</h3>
+              <p class="text-slate-500 text-sm leading-relaxed mb-6">Estrategia de contenido y producción de videos de marca personal. Posicionamiento del fundador como referente en su industria.</p>
+              <div class="grid grid-cols-2 gap-4 mt-auto">
+                <div>
+                  <p class="text-2xl font-black">Video</p>
+                  <p class="text-xs text-slate-400 mt-0.5">Producción de contenido</p>
+                </div>
+                <div>
+                  <p class="text-2xl font-black">Marca</p>
+                  <p class="text-xs text-slate-400 mt-0.5">Personal del fundador</p>
+                </div>
+              </div>
+              <div class="mt-6 pt-5 border-t border-slate-100">
+                <p class="text-sm text-slate-600 italic">"Se construyó una narrativa auténtica para conectar con su audiencia."</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CASO 4: Redes — Natsu Life Bambú -->
+          <div class="case-card">
+            <div class="card-lift rounded-2xl border border-slate-100 bg-white p-7 h-full flex flex-col">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-600 text-[11px] font-semibold uppercase tracking-wide">Redes sociales</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">Natsu Life Bambú — Manejo de redes</h3>
+              <p class="text-slate-500 text-sm leading-relaxed mb-6">Grabación, edición y gestión completa de redes sociales. Contenido constante que refleja la identidad de la marca.</p>
+              <div class="grid grid-cols-2 gap-4 mt-auto">
+                <div>
+                  <p class="text-2xl font-black">Full</p>
+                  <p class="text-xs text-slate-400 mt-0.5">Grabación y edición</p>
+                </div>
+                <div>
+                  <p class="text-2xl font-black">Integral</p>
+                  <p class="text-xs text-slate-400 mt-0.5">Gestión de redes</p>
+                </div>
+              </div>
+              <div class="mt-6 pt-5 border-t border-slate-100">
+                <p class="text-sm text-slate-600 italic">"Contenido real y constante, no genérico. Redes que se sienten como la marca."</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="reveal mt-14 bg-slate-950 text-white p-9 sm:p-12 rounded-3xl relative overflow-hidden">
-          <div class="absolute -top-4 -right-4 text-[180px] font-black text-white/[0.03] leading-none select-none">&ldquo;</div>
-          <p class="relative text-xl sm:text-2xl leading-snug font-medium max-w-2xl">
-            Lo que antes tomaba horas buscando en tarjetas y preguntando a personas, hoy se resuelve en segundos.
-          </p>
-          <p class="relative mt-5 text-slate-500 text-sm">Proyecto en curso desde febrero 2025</p>
+        <!-- Dots -->
+        <div class="flex justify-center gap-2 mt-4">
+          <button class="case-dot w-2 h-2 rounded-full bg-slate-300 dot-active transition-colors" data-index="0"></button>
+          <button class="case-dot w-2 h-2 rounded-full bg-slate-300 transition-colors" data-index="1"></button>
+          <button class="case-dot w-2 h-2 rounded-full bg-slate-300 transition-colors" data-index="2"></button>
+          <button class="case-dot w-2 h-2 rounded-full bg-slate-300 transition-colors" data-index="3"></button>
         </div>
       </div>
     </section>
 
     <!-- EQUIPO -->
-    <section id="equipo" class="py-24 px-5 bg-slate-50">
+    <section id="equipo" class="py-20 px-5 bg-slate-50">
       <div class="max-w-5xl mx-auto">
         <div class="reveal">
-          <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-3">Equipo</p>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-14">Quiénes están detrás<br/><span class="text-slate-400">de CURVA.</span></h2>
+          <p class="text-xs font-semibold text-accent uppercase tracking-widest mb-2">Equipo</p>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mb-10">Quiénes están detrás<br/><span class="text-slate-400">de CURVA.</span></h2>
         </div>
 
-        <div class="grid sm:grid-cols-2 gap-10">
-          <div class="reveal reveal-d1 flex gap-5">
-            <div class="w-[72px] h-[72px] flex-shrink-0 overflow-hidden rounded-2xl bg-slate-200 ring-2 ring-white shadow-md">
+        <div class="grid sm:grid-cols-2 gap-8">
+          <div class="reveal reveal-d1 flex gap-4">
+            <div class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-2xl bg-slate-200 ring-2 ring-white shadow-md">
               <img src="/andres.jpg" alt="Andrés Páez Cortazar" class="w-full h-full object-cover object-top" loading="lazy"/>
             </div>
             <div>
-              <h3 class="font-bold text-base">Andrés Páez Cortazar</h3>
-              <p class="text-accent text-sm font-semibold mb-2">Fundador</p>
-              <p class="text-slate-500 text-sm leading-relaxed">Lic. en Estrategia y Transformación de Negocios, Tec de Monterrey. IA aplicada a negocios. Proyectos de estrategia en consumo masivo y farmacéutica. Ponente Global Money Week 2025 (OECD).</p>
+              <h3 class="font-bold text-sm">Andrés Páez Cortazar</h3>
+              <p class="text-accent text-xs font-semibold mb-1.5">Fundador</p>
+              <p class="text-slate-500 text-sm leading-relaxed">Lic. en Estrategia y Transformación de Negocios, Tec de Monterrey. IA aplicada a negocios. Ponente Global Money Week 2025 (OECD).</p>
             </div>
           </div>
-          <div class="reveal reveal-d2 flex gap-5">
-            <div class="w-[72px] h-[72px] flex-shrink-0 overflow-hidden rounded-2xl bg-slate-200 ring-2 ring-white shadow-md">
+          <div class="reveal reveal-d2 flex gap-4">
+            <div class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-2xl bg-slate-200 ring-2 ring-white shadow-md">
               <img src="/ivana.jpg" alt="Ivana Garduño Mayo" class="w-full h-full object-cover object-top" loading="lazy"/>
             </div>
             <div>
-              <h3 class="font-bold text-base">Ivana Garduño Mayo</h3>
-              <p class="text-accent text-sm font-semibold mb-2">Co-líder</p>
-              <p class="text-slate-500 text-sm leading-relaxed">Organización y ejecución de proyectos de transformación. Gobernanza, estructura organizacional, acompañamiento a equipos directivos. Escenarios estratégicos e iniciativas internacionales.</p>
+              <h3 class="font-bold text-sm">Ivana Garduño Mayo</h3>
+              <p class="text-accent text-xs font-semibold mb-1.5">Co-líder</p>
+              <p class="text-slate-500 text-sm leading-relaxed">Organización y ejecución de proyectos de transformación. Gobernanza, estructura organizacional, acompañamiento a equipos directivos.</p>
             </div>
           </div>
         </div>
@@ -284,15 +359,15 @@ const calLink = "https://cal.com/andres-paez/30min"
     </section>
 
     <!-- PARA QUIÉN -->
-    <section class="py-24 px-5 bg-slate-950 text-white">
+    <section class="py-20 px-5 bg-slate-950 text-white">
       <div class="max-w-4xl mx-auto">
         <div class="reveal">
-          <p class="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-3">Para quién es esto</p>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-14">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Para quién es esto</p>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight mb-10">
             Empresas que ya operan y venden,<br/><span class="text-slate-500">pero la estructura no aguanta.</span>
           </h2>
         </div>
-        <div class="grid sm:grid-cols-2 gap-6">
+        <div class="grid sm:grid-cols-2 gap-5">
           {[
             "El fundador carga todo y el negocio no funciona sin él.",
             "Los procesos viven en la cabeza de ciertas personas.",
@@ -302,8 +377,8 @@ const calLink = "https://cal.com/andres-paez/30min"
             "Se necesita profesionalizar sin perder la esencia.",
           ].map((item, i) => (
             <div class={`reveal reveal-d${Math.min(i + 1, 6)} flex gap-3 items-start`}>
-              <span class="mt-2 w-2.5 h-2.5 rounded-full bg-accent flex-shrink-0"></span>
-              <p class="text-[17px] text-slate-300 leading-relaxed">{item}</p>
+              <span class="mt-1.5 w-2 h-2 rounded-full bg-accent flex-shrink-0"></span>
+              <p class="text-[15px] text-slate-300 leading-relaxed">{item}</p>
             </div>
           ))}
         </div>
@@ -311,42 +386,78 @@ const calLink = "https://cal.com/andres-paez/30min"
     </section>
 
     <!-- CTA FINAL -->
-    <section class="py-24 sm:py-32 px-5">
+    <section class="py-20 sm:py-24 px-5">
       <div class="reveal max-w-3xl mx-auto text-center">
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
           Hablemos de<br/>tu empresa.
         </h2>
-        <p class="mt-6 text-lg text-slate-500 max-w-md mx-auto leading-relaxed">
+        <p class="mt-5 text-base text-slate-500 max-w-md mx-auto leading-relaxed">
           30 minutos. Sin compromiso. Te decimos con honestidad si podemos ayudarte.
         </p>
-        <a href={calLink} target="_blank" rel="noopener" class="group mt-10 inline-flex items-center gap-2 text-lg font-semibold bg-slate-900 text-white px-9 py-5 rounded-full hover:bg-slate-800 transition-all hover:gap-3 hover:shadow-2xl">
+        <a href={calLink} target="_blank" rel="noopener" class="group mt-8 inline-flex items-center gap-2 text-base font-semibold bg-slate-900 text-white px-8 py-4 rounded-full hover:bg-slate-800 transition-all hover:gap-3 hover:shadow-2xl">
           Agendar conversación
-          <svg class="w-5 h-5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
         </a>
       </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-8 px-5 border-t border-slate-100">
-      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
-        <p class="text-xl font-black tracking-tighter">CURVA<span class="text-accent">.</span></p>
-        <p class="text-sm text-slate-400">Consultoría empresarial — Ciudad de México</p>
+    <footer class="py-6 px-5 border-t border-slate-100">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+        <p class="text-lg font-black tracking-tighter">CURVA<span class="text-accent">.</span></p>
+        <p class="text-xs text-slate-400">Consultoría empresarial — Ciudad de México</p>
       </div>
     </footer>
 
     <!-- SCRIPTS -->
     <script>
+      // Scroll reveal
       const io = new IntersectionObserver((es) => {
         es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
       }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
       document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+      // Glow cards
       document.querySelectorAll('.glow-card').forEach(c => {
         c.addEventListener('mousemove', (e) => {
           const r = c.getBoundingClientRect();
           c.style.setProperty('--x', ((e.clientX-r.left)/r.width*100)+'%');
           c.style.setProperty('--y', ((e.clientY-r.top)/r.height*100)+'%');
         });
+      });
+
+      // Cases carousel
+      const track = document.getElementById('cases-track');
+      const cards = track.querySelectorAll('.case-card');
+      const dots = document.querySelectorAll('.case-dot');
+      const prevBtn = document.getElementById('prev-case');
+      const nextBtn = document.getElementById('next-case');
+      let current = 0;
+
+      function scrollToCase(i) {
+        current = Math.max(0, Math.min(i, cards.length - 1));
+        cards[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        dots.forEach((d, di) => d.classList.toggle('dot-active', di === current));
+      }
+
+      prevBtn.addEventListener('click', () => scrollToCase(current - 1));
+      nextBtn.addEventListener('click', () => scrollToCase(current + 1));
+      dots.forEach(d => d.addEventListener('click', () => scrollToCase(+d.dataset.index)));
+
+      // Update dots on manual scroll
+      let scrollTimer;
+      track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          const trackLeft = track.scrollLeft;
+          let closest = 0, minDist = Infinity;
+          cards.forEach((c, i) => {
+            const dist = Math.abs(c.offsetLeft - trackLeft);
+            if (dist < minDist) { minDist = dist; closest = i; }
+          });
+          current = closest;
+          dots.forEach((d, di) => d.classList.toggle('dot-active', di === current));
+        }, 100);
       });
     </script>
 
