@@ -9,8 +9,8 @@ const calLink = "https://cal.com/andres-paez/30min"
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="CURVA — Consultoría integral para empresas que necesitan orden, estructura y dirección para crecer." />
-    <title>CURVA — Consultoría empresarial</title>
+    <meta name="description" content="CURVA. Consultoría integral para empresas que necesitan orden, estructura y dirección para crecer." />
+    <title>CURVA. Consultoría empresarial</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -19,7 +19,6 @@ const calLink = "https://cal.com/andres-paez/30min"
       .reveal.visible { opacity: 1; transform: translateY(0); }
       .reveal-d1 { transition-delay: 0.08s; } .reveal-d2 { transition-delay: 0.16s; }
       .reveal-d3 { transition-delay: 0.24s; } .reveal-d4 { transition-delay: 0.32s; }
-      .reveal-d5 { transition-delay: 0.4s; } .reveal-d6 { transition-delay: 0.48s; }
 
       .card-lift { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease; }
       .card-lift:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
@@ -38,23 +37,22 @@ const calLink = "https://cal.com/andres-paez/30min"
 
       .gradient-text { background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
+      /* Dropdown */
+      .nav-dropdown, .svc-dropdown {
+        opacity: 0; transform: translateY(-8px) scale(0.97); pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+      }
+      .nav-dropdown.open, .svc-dropdown.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+      .svc-option { transition: background-color 0.15s ease; }
+      .svc-option:hover { background-color: #f1f5f9; }
+
       /* Carousel */
       .cases-track { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
       .cases-track::-webkit-scrollbar { display: none; }
       .case-card { scroll-snap-align: start; flex: 0 0 85%; max-width: 480px; }
       @media (min-width: 640px) { .case-card { flex: 0 0 45%; } }
       @media (min-width: 1024px) { .case-card { flex: 0 0 32%; } }
-
       .dot-active { background-color: #2563eb; }
-
-      /* Service selector */
-      .svc-dropdown {
-        opacity: 0; transform: translateY(-8px) scale(0.97); pointer-events: none;
-        transition: opacity 0.25s ease, transform 0.25s ease;
-      }
-      .svc-dropdown.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-      .svc-option { transition: background-color 0.15s ease; }
-      .svc-option:hover { background-color: #f1f5f9; }
 
       @media (max-width: 640px) {
         .hero-h1 { font-size: 2.25rem; }
@@ -69,7 +67,27 @@ const calLink = "https://cal.com/andres-paez/30min"
       <div class="max-w-6xl mx-auto px-5 py-3.5 flex justify-between items-center">
         <a href="#" class="text-xl font-black tracking-tighter">CURVA<span class="text-accent">.</span></a>
         <div class="flex items-center gap-5">
-          <a href="#servicios" class="hidden md:inline text-sm text-slate-500 hover:text-slate-900 transition-colors">Servicios</a>
+          <!-- Nav Servicios dropdown -->
+          <div class="hidden md:block relative">
+            <button id="nav-svc-trigger" class="text-sm text-slate-500 hover:text-slate-900 transition-colors inline-flex items-center gap-1">
+              Servicios
+              <svg id="nav-svc-chevron" class="w-3.5 h-3.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+            </button>
+            <div id="nav-svc-dropdown" class="nav-dropdown absolute right-0 top-full mt-3 w-72 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-40">
+              <a href="/servicios/diagnostico" class="svc-option px-4 py-3 flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg></span>
+                <div><span class="text-sm font-semibold block">Consultoría y estructura</span><span class="text-xs text-slate-400">Diagnóstico, procesos, gobernanza, cultura</span></div>
+              </a>
+              <a href="/servicios/digitalizacion" class="svc-option px-4 py-3 flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-accent flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></span>
+                <div><span class="text-sm font-semibold block">Digitalización y automatización</span><span class="text-xs text-slate-400">ERPs, agentes IA, integraciones</span></div>
+              </a>
+              <a href="/servicios/marketing" class="svc-option px-4 py-3 flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09"/></svg></span>
+                <div><span class="text-sm font-semibold block">Marketing y contenido</span><span class="text-xs text-slate-400">Redes, video, marca personal</span></div>
+              </a>
+            </div>
+          </div>
           <a href="#casos" class="hidden md:inline text-sm text-slate-500 hover:text-slate-900 transition-colors">Resultados</a>
           <a href="#equipo" class="hidden md:inline text-sm text-slate-500 hover:text-slate-900 transition-colors">Equipo</a>
           <a href={calLink} target="_blank" rel="noopener" class="text-sm font-semibold bg-slate-900 text-white px-5 py-2 rounded-full hover:bg-slate-800 transition-colors">
@@ -79,14 +97,9 @@ const calLink = "https://cal.com/andres-paez/30min"
       </div>
     </nav>
 
-    <!-- HERO — fills viewport -->
+    <!-- HERO -->
     <section class="relative min-h-[calc(100vh-52px)] flex flex-col justify-center px-5">
       <div class="max-w-5xl mx-auto w-full">
-        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-400 mb-8">
-          <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>Proyecto activo desde 2025</span>
-          <span>Tec de Monterrey</span>
-          <span>Global Money Week — OECD</span>
-        </div>
         <h1 class="hero-h1 text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">
           Empresas que funcionan<br class="hidden sm:block"/>por esfuerzo.
         </h1>
@@ -94,14 +107,14 @@ const calLink = "https://cal.com/andres-paez/30min"
           Transformadas en empresas<br class="hidden sm:block"/>que funcionan por estructura.
         </p>
         <p class="mt-8 text-lg sm:text-xl text-slate-500 max-w-xl leading-relaxed">
-          Diagnóstico, digitalización, procesos, gobernanza, cultura, liderazgo y marketing — en una sola consultoría.
+          Diagnóstico, digitalización, procesos, gobernanza, cultura, liderazgo y marketing. Todo en una sola consultoría.
         </p>
         <div class="mt-8 flex flex-col sm:flex-row items-start gap-3">
           <a href={calLink} target="_blank" rel="noopener" class="group inline-flex items-center justify-center gap-2 text-base font-semibold bg-slate-900 text-white px-7 py-4 rounded-full hover:bg-slate-800 transition-all hover:gap-3">
             Agendar diagnóstico gratuito
             <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
           </a>
-          <!-- Dropdown: qué necesitas -->
+          <!-- Dropdown -->
           <div class="relative">
             <button id="svc-trigger" class="inline-flex items-center justify-center gap-2 text-base font-semibold text-slate-500 px-7 py-4 rounded-full border border-slate-200 hover:text-slate-900 hover:border-slate-400 transition-all">
               ¿Qué necesita tu empresa?
@@ -109,25 +122,16 @@ const calLink = "https://cal.com/andres-paez/30min"
             </button>
             <div id="svc-dropdown" class="svc-dropdown absolute left-0 top-full mt-2 w-80 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-40">
               <a href="/servicios/diagnostico" class="svc-option px-5 py-3.5 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4.5 h-4.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg></span>
-                <div>
-                  <span class="text-sm font-semibold block">Consultoría y estructura</span>
-                  <span class="text-xs text-slate-400">Diagnóstico, procesos, gobernanza, cultura</span>
-                </div>
+                <span class="w-9 h-9 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg></span>
+                <div><span class="text-sm font-semibold block">Consultoría y estructura</span><span class="text-xs text-slate-400">Diagnóstico, procesos, gobernanza, cultura</span></div>
               </a>
               <a href="/servicios/digitalizacion" class="svc-option px-5 py-3.5 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-lg bg-accent flex items-center justify-center flex-shrink-0"><svg class="w-4.5 h-4.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></span>
-                <div>
-                  <span class="text-sm font-semibold block">Digitalización y automatización</span>
-                  <span class="text-xs text-slate-400">ERPs, agentes IA, integraciones</span>
-                </div>
+                <span class="w-9 h-9 rounded-lg bg-accent flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></span>
+                <div><span class="text-sm font-semibold block">Digitalización y automatización</span><span class="text-xs text-slate-400">ERPs, agentes IA, integraciones</span></div>
               </a>
               <a href="/servicios/marketing" class="svc-option px-5 py-3.5 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4.5 h-4.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09"/></svg></span>
-                <div>
-                  <span class="text-sm font-semibold block">Marketing y contenido</span>
-                  <span class="text-xs text-slate-400">Redes, video, marca personal</span>
-                </div>
+                <span class="w-9 h-9 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09"/></svg></span>
+                <div><span class="text-sm font-semibold block">Marketing y contenido</span><span class="text-xs text-slate-400">Redes, video, marca personal</span></div>
               </a>
             </div>
           </div>
@@ -144,13 +148,14 @@ const calLink = "https://cal.com/andres-paez/30min"
       </div>
     </div>
 
-    <!-- SERVICIOS — 3 bloques -->
+    <!-- SERVICIOS -->
     <section id="servicios" class="py-20 sm:py-24 px-5">
       <div class="max-w-6xl mx-auto">
-        <div class="reveal max-w-2xl mb-12">
+        <div class="reveal max-w-2xl mb-4">
           <p class="text-xs font-semibold text-accent uppercase tracking-widest mb-2">Nuestros servicios</p>
           <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">¿Qué estás buscando?</h2>
         </div>
+        <p class="reveal text-slate-500 text-base leading-relaxed max-w-xl mb-12">Equipo multidisciplinario con experiencia en estrategia, tecnología y comunicación. Tres áreas de trabajo que se combinan según lo que tu empresa necesite.</p>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <!-- 1. Consultoría y estructura -->
@@ -170,8 +175,7 @@ const calLink = "https://cal.com/andres-paez/30min"
               <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300">Liderazgo</span>
             </div>
             <span class="inline-flex items-center gap-2 text-sm font-semibold text-accent group-hover:gap-3 transition-all">
-              Ver más
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              Ver más <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
             </span>
           </a>
 
@@ -191,8 +195,7 @@ const calLink = "https://cal.com/andres-paez/30min"
               <span class="px-2.5 py-1 rounded-full bg-white/15 text-[11px] font-medium text-white/80">Integraciones</span>
             </div>
             <span class="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all">
-              Ver más
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              Ver más <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
             </span>
           </a>
 
@@ -212,13 +215,12 @@ const calLink = "https://cal.com/andres-paez/30min"
               <span class="px-2.5 py-1 rounded-full bg-slate-200/60 text-[11px] font-medium text-slate-600">Estrategia</span>
             </div>
             <span class="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 group-hover:gap-3 transition-all">
-              Ver más
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              Ver más <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
             </span>
           </a>
         </div>
 
-        <!-- Bloque: 100% personalizado -->
+        <!-- 100% personalizado -->
         <div class="reveal mt-10 rounded-2xl border border-slate-200 bg-white p-8 sm:p-10">
           <div class="flex flex-col sm:flex-row gap-8">
             <div class="sm:w-1/3">
@@ -226,10 +228,10 @@ const calLink = "https://cal.com/andres-paez/30min"
             </div>
             <div class="sm:w-2/3 space-y-4">
               <p class="text-slate-600 text-[15px] leading-relaxed">
-                Estas tres áreas no son paquetes separados — son las piezas con las que construimos algo a tu medida. Puedes combinar lo que necesites: un diagnóstico con automatización, estructura con marketing, o las tres completas. <strong class="text-slate-900">Tú defines el alcance, nosotros lo armamos.</strong>
+                Estas tres áreas no son paquetes cerrados. Son las piezas con las que construimos algo a tu medida. Puedes enfocarte en una sola, combinar dos, o trabajar las tres. <strong class="text-slate-900">Tú defines el alcance, nosotros lo armamos.</strong>
               </p>
               <p class="text-slate-600 text-[15px] leading-relaxed">
-                Sabemos que tu empresa no puede parar. Por eso nosotros nos adaptamos a tus tiempos, a tu forma de trabajar, a tu ritmo. <strong class="text-slate-900">Nosotros entramos a tu empresa — no al revés.</strong> No te pedimos que modifiques tu operación para trabajar con nosotros. Nos integramos a lo que ya tienes y desde ahí construimos.
+                Sabemos que tu empresa no puede parar. Por eso nosotros nos adaptamos a tus tiempos, tu forma de trabajar, tu ritmo. <strong class="text-slate-900">Nosotros entramos a tu empresa, no al revés.</strong> No te pedimos que modifiques tu operación para trabajar con nosotros. Nos integramos a lo que ya tienes y desde ahí construimos.
               </p>
               <div class="flex flex-wrap gap-3 pt-2">
                 <span class="inline-flex items-center gap-1.5 text-sm text-slate-500">
@@ -239,8 +241,14 @@ const calLink = "https://cal.com/andres-paez/30min"
                   <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Nos adaptamos a tus tiempos
                 </span>
                 <span class="inline-flex items-center gap-1.5 text-sm text-slate-500">
-                  <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Combina las áreas que quieras
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Una área o todas combinadas
                 </span>
+              </div>
+              <div class="pt-4">
+                <a href={calLink} target="_blank" rel="noopener" class="group inline-flex items-center gap-2 text-sm font-semibold bg-slate-900 text-white px-6 py-3 rounded-full hover:bg-slate-800 transition-all hover:gap-3">
+                  Platiquemos de lo que necesitas
+                  <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </a>
               </div>
             </div>
           </div>
@@ -273,7 +281,7 @@ const calLink = "https://cal.com/andres-paez/30min"
       </div>
     </section>
 
-    <!-- CASOS DE ÉXITO — Carousel -->
+    <!-- CASOS DE ÉXITO -->
     <section id="casos" class="py-20 sm:py-24 px-5">
       <div class="max-w-6xl mx-auto">
         <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10">
@@ -292,112 +300,85 @@ const calLink = "https://cal.com/andres-paez/30min"
         </div>
 
         <div id="cases-track" class="cases-track pb-4">
-          <!-- CASO 1: Retail + microcréditos -->
-          <div class="case-card">
+          <!-- CASO 1: Consultoría integral -->
+          <a href="/servicios/diagnostico" class="case-card group">
             <div class="card-lift rounded-2xl border border-slate-100 bg-white p-7 h-full flex flex-col">
               <div class="flex items-center gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-full bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-wide">Consultoría integral</span>
+                <span class="px-2.5 py-1 rounded-full bg-slate-900/10 text-slate-700 text-[11px] font-semibold uppercase tracking-wide">Consultoría y estructura</span>
               </div>
-              <h3 class="text-lg font-bold mb-2">Retail y microcréditos — CDMX</h3>
+              <h3 class="text-lg font-bold mb-2">Retail y microcréditos en CDMX</h3>
               <p class="text-slate-500 text-sm leading-relaxed mb-6">De tarjetas de papel a operación digital completa. ERP, crédito digitalizado, gobernanza y estructura organizacional.</p>
               <div class="grid grid-cols-2 gap-4 mt-auto">
-                <div>
-                  <p class="text-2xl font-black">1,096</p>
-                  <p class="text-xs text-slate-400 mt-0.5">Facturas digitalizadas</p>
-                </div>
-                <div>
-                  <p class="text-2xl font-black">869</p>
-                  <p class="text-xs text-slate-400 mt-0.5">Clientes en sistema</p>
-                </div>
-                <div>
-                  <p class="text-2xl font-black">400+</p>
-                  <p class="text-xs text-slate-400 mt-0.5">Créditos migrados</p>
-                </div>
-                <div>
-                  <p class="text-2xl font-black">4 meses</p>
-                  <p class="text-xs text-slate-400 mt-0.5">De implementación</p>
-                </div>
+                <div><p class="text-2xl font-black">1,096</p><p class="text-xs text-slate-400 mt-0.5">Facturas digitalizadas</p></div>
+                <div><p class="text-2xl font-black">869</p><p class="text-xs text-slate-400 mt-0.5">Clientes en sistema</p></div>
+                <div><p class="text-2xl font-black">400+</p><p class="text-xs text-slate-400 mt-0.5">Créditos migrados</p></div>
+                <div><p class="text-2xl font-black">4 meses</p><p class="text-xs text-slate-400 mt-0.5">De implementación</p></div>
               </div>
-              <div class="mt-6 pt-5 border-t border-slate-100">
-                <p class="text-sm text-slate-600 italic">"Lo que antes tomaba horas buscando en tarjetas, hoy se resuelve en segundos."</p>
+              <div class="mt-6 pt-5 border-t border-slate-100 flex justify-between items-center">
+                <p class="text-sm text-slate-600 italic">"Hoy se resuelve en segundos lo que antes tomaba horas."</p>
+                <svg class="w-4 h-4 text-slate-300 group-hover:text-accent transition-colors flex-shrink-0 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
               </div>
             </div>
-          </div>
+          </a>
 
-          <!-- CASO 2: Automatización con IA — Mensajería -->
-          <div class="case-card">
+          <!-- CASO 2: Digitalización y automatización -->
+          <a href="/servicios/digitalizacion" class="case-card group">
             <div class="card-lift rounded-2xl border border-slate-100 bg-white p-7 h-full flex flex-col">
               <div class="flex items-center gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 text-[11px] font-semibold uppercase tracking-wide">Automatización + IA</span>
+                <span class="px-2.5 py-1 rounded-full bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-wide">Digitalización y automatización</span>
               </div>
-              <h3 class="text-lg font-bold mb-2">Agente IA para mensajería</h3>
-              <p class="text-slate-500 text-sm leading-relaxed mb-6">Construimos un agente con inteligencia artificial para atención a clientes y cotización automática de envíos. Integrado al flujo real de operación de la empresa.</p>
+              <h3 class="text-lg font-bold mb-2">Agente IA para empresa de mensajería</h3>
+              <p class="text-slate-500 text-sm leading-relaxed mb-6">Agente con inteligencia artificial para atención a clientes y cotización automática de envíos. Integrado al flujo real de operación.</p>
               <div class="grid grid-cols-2 gap-4 mt-auto">
-                <div>
-                  <p class="text-2xl font-black">24/7</p>
-                  <p class="text-xs text-slate-400 mt-0.5">Atención automatizada</p>
-                </div>
-                <div>
-                  <p class="text-2xl font-black">Auto</p>
-                  <p class="text-xs text-slate-400 mt-0.5">Cotizaciones de envío</p>
-                </div>
+                <div><p class="text-2xl font-black">24/7</p><p class="text-xs text-slate-400 mt-0.5">Atención automatizada</p></div>
+                <div><p class="text-2xl font-black">Auto</p><p class="text-xs text-slate-400 mt-0.5">Cotizaciones de envío</p></div>
               </div>
-              <div class="mt-6 pt-5 border-t border-slate-100">
-                <p class="text-sm text-slate-600 italic">"Los clientes reciben respuesta inmediata y cotización sin esperar a nadie."</p>
+              <div class="mt-6 pt-5 border-t border-slate-100 flex justify-between items-center">
+                <p class="text-sm text-slate-600 italic">"Respuesta inmediata y cotización sin esperar a nadie."</p>
+                <svg class="w-4 h-4 text-slate-300 group-hover:text-accent transition-colors flex-shrink-0 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
               </div>
             </div>
-          </div>
+          </a>
 
-          <!-- CASO 3: Marketing — Green Earth -->
-          <div class="case-card">
+          <!-- CASO 3: Marketing -->
+          <a href="/servicios/marketing" class="case-card group">
             <div class="card-lift rounded-2xl border border-slate-100 bg-white p-7 h-full flex flex-col">
               <div class="flex items-center gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-full bg-green-500/10 text-green-600 text-[11px] font-semibold uppercase tracking-wide">Marketing</span>
+                <span class="px-2.5 py-1 rounded-full bg-green-500/10 text-green-600 text-[11px] font-semibold uppercase tracking-wide">Marketing y contenido</span>
               </div>
-              <h3 class="text-lg font-bold mb-2">Green Earth — Videos de marca personal</h3>
-              <p class="text-slate-500 text-sm leading-relaxed mb-6">Estrategia de contenido y producción de videos de marca personal. Posicionamiento del fundador como referente en su industria.</p>
+              <h3 class="text-lg font-bold mb-2">Green Earth: videos de marca personal</h3>
+              <p class="text-slate-500 text-sm leading-relaxed mb-6">Estrategia de contenido y producción de videos. Posicionamiento del fundador como referente en su industria.</p>
               <div class="grid grid-cols-2 gap-4 mt-auto">
-                <div>
-                  <p class="text-2xl font-black">Video</p>
-                  <p class="text-xs text-slate-400 mt-0.5">Producción de contenido</p>
-                </div>
-                <div>
-                  <p class="text-2xl font-black">Marca</p>
-                  <p class="text-xs text-slate-400 mt-0.5">Personal del fundador</p>
-                </div>
+                <div><p class="text-2xl font-black">Video</p><p class="text-xs text-slate-400 mt-0.5">Producción de contenido</p></div>
+                <div><p class="text-2xl font-black">Marca</p><p class="text-xs text-slate-400 mt-0.5">Personal del fundador</p></div>
               </div>
-              <div class="mt-6 pt-5 border-t border-slate-100">
-                <p class="text-sm text-slate-600 italic">"Se construyó una narrativa auténtica para conectar con su audiencia."</p>
+              <div class="mt-6 pt-5 border-t border-slate-100 flex justify-between items-center">
+                <p class="text-sm text-slate-600 italic">"Narrativa auténtica que conecta con la audiencia."</p>
+                <svg class="w-4 h-4 text-slate-300 group-hover:text-accent transition-colors flex-shrink-0 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
               </div>
             </div>
-          </div>
+          </a>
 
-          <!-- CASO 4: Redes — Natsu Life Bambú -->
-          <div class="case-card">
+          <!-- CASO 4: Marketing redes -->
+          <a href="/servicios/marketing" class="case-card group">
             <div class="card-lift rounded-2xl border border-slate-100 bg-white p-7 h-full flex flex-col">
               <div class="flex items-center gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-600 text-[11px] font-semibold uppercase tracking-wide">Redes sociales</span>
+                <span class="px-2.5 py-1 rounded-full bg-green-500/10 text-green-600 text-[11px] font-semibold uppercase tracking-wide">Marketing y contenido</span>
               </div>
-              <h3 class="text-lg font-bold mb-2">Natsu Life Bambú — Manejo de redes</h3>
+              <h3 class="text-lg font-bold mb-2">Natsu Life Bambú: manejo de redes</h3>
               <p class="text-slate-500 text-sm leading-relaxed mb-6">Grabación, edición y gestión completa de redes sociales. Contenido constante que refleja la identidad de la marca.</p>
               <div class="grid grid-cols-2 gap-4 mt-auto">
-                <div>
-                  <p class="text-2xl font-black">Full</p>
-                  <p class="text-xs text-slate-400 mt-0.5">Grabación y edición</p>
-                </div>
-                <div>
-                  <p class="text-2xl font-black">Integral</p>
-                  <p class="text-xs text-slate-400 mt-0.5">Gestión de redes</p>
-                </div>
+                <div><p class="text-2xl font-black">Full</p><p class="text-xs text-slate-400 mt-0.5">Grabación y edición</p></div>
+                <div><p class="text-2xl font-black">Integral</p><p class="text-xs text-slate-400 mt-0.5">Gestión de redes</p></div>
               </div>
-              <div class="mt-6 pt-5 border-t border-slate-100">
-                <p class="text-sm text-slate-600 italic">"Contenido real y constante, no genérico. Redes que se sienten como la marca."</p>
+              <div class="mt-6 pt-5 border-t border-slate-100 flex justify-between items-center">
+                <p class="text-sm text-slate-600 italic">"Contenido real, constante. Redes que se sienten como la marca."</p>
+                <svg class="w-4 h-4 text-slate-300 group-hover:text-accent transition-colors flex-shrink-0 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
               </div>
             </div>
-          </div>
+          </a>
         </div>
 
-        <!-- Dots -->
         <div class="flex justify-center gap-2 mt-4">
           <button class="case-dot w-2 h-2 rounded-full bg-slate-300 dot-active transition-colors" data-index="0"></button>
           <button class="case-dot w-2 h-2 rounded-full bg-slate-300 transition-colors" data-index="1"></button>
@@ -423,7 +404,7 @@ const calLink = "https://cal.com/andres-paez/30min"
             <div>
               <h3 class="font-bold text-sm">Andrés Páez Cortazar</h3>
               <p class="text-accent text-xs font-semibold mb-1.5">Fundador</p>
-              <p class="text-slate-500 text-sm leading-relaxed">Lic. en Estrategia y Transformación de Negocios, Tec de Monterrey. IA aplicada a negocios. Ponente Global Money Week 2025 (OECD).</p>
+              <p class="text-slate-500 text-sm leading-relaxed">Lic. en Estrategia y Transformación de Negocios, Tec de Monterrey. IA aplicada a negocios. Ponente en Global Money Week 2025 (OECD).</p>
             </div>
           </div>
           <div class="reveal reveal-d2 flex gap-4">
@@ -458,7 +439,7 @@ const calLink = "https://cal.com/andres-paez/30min"
             "Hay voluntad de crecer pero falta estructura.",
             "Se necesita profesionalizar sin perder la esencia.",
           ].map((item, i) => (
-            <div class={`reveal reveal-d${Math.min(i + 1, 6)} flex gap-3 items-start`}>
+            <div class={`reveal reveal-d${Math.min(i + 1, 4)} flex gap-3 items-start`}>
               <span class="mt-1.5 w-2 h-2 rounded-full bg-accent flex-shrink-0"></span>
               <p class="text-[15px] text-slate-300 leading-relaxed">{item}</p>
             </div>
@@ -487,7 +468,7 @@ const calLink = "https://cal.com/andres-paez/30min"
     <footer class="py-6 px-5 border-t border-slate-100">
       <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
         <p class="text-lg font-black tracking-tighter">CURVA<span class="text-accent">.</span></p>
-        <p class="text-xs text-slate-400">Consultoría empresarial — Ciudad de México</p>
+        <p class="text-xs text-slate-400">Consultoría empresarial, Ciudad de México</p>
       </div>
     </footer>
 
@@ -508,21 +489,32 @@ const calLink = "https://cal.com/andres-paez/30min"
         });
       });
 
-      // Service dropdown toggle
-      const svcTrigger = document.getElementById('svc-trigger');
-      const svcDropdown = document.getElementById('svc-dropdown');
-      const svcChevron = document.getElementById('svc-chevron');
+      // Dropdowns (nav + hero)
+      function setupDropdown(triggerId, dropdownId, chevronId) {
+        const trigger = document.getElementById(triggerId);
+        const dropdown = document.getElementById(dropdownId);
+        const chevron = chevronId ? document.getElementById(chevronId) : null;
+        if (!trigger || !dropdown) return;
 
-      svcTrigger.addEventListener('click', () => {
-        const isOpen = svcDropdown.classList.toggle('open');
-        svcChevron.style.transform = isOpen ? 'rotate(180deg)' : '';
-      });
+        trigger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = dropdown.classList.toggle('open');
+          if (chevron) chevron.style.transform = isOpen ? 'rotate(180deg)' : '';
+          // Close other dropdowns
+          document.querySelectorAll('.nav-dropdown.open, .svc-dropdown.open').forEach(d => {
+            if (d !== dropdown) d.classList.remove('open');
+          });
+        });
+      }
+      setupDropdown('svc-trigger', 'svc-dropdown', 'svc-chevron');
+      setupDropdown('nav-svc-trigger', 'nav-svc-dropdown', 'nav-svc-chevron');
 
-      document.addEventListener('click', (e) => {
-        if (!svcTrigger.contains(e.target) && !svcDropdown.contains(e.target)) {
-          svcDropdown.classList.remove('open');
-          svcChevron.style.transform = '';
-        }
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.nav-dropdown.open, .svc-dropdown.open').forEach(d => d.classList.remove('open'));
+        const c1 = document.getElementById('svc-chevron');
+        const c2 = document.getElementById('nav-svc-chevron');
+        if (c1) c1.style.transform = '';
+        if (c2) c2.style.transform = '';
       });
 
       // Cases carousel
@@ -543,7 +535,6 @@ const calLink = "https://cal.com/andres-paez/30min"
       nextBtn.addEventListener('click', () => scrollToCase(current + 1));
       dots.forEach(d => d.addEventListener('click', () => scrollToCase(+d.dataset.index)));
 
-      // Update dots on manual scroll
       let scrollTimer;
       track.addEventListener('scroll', () => {
         clearTimeout(scrollTimer);

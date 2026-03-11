@@ -6,21 +6,88 @@ import ServicioLayout from '../../layouts/ServicioLayout.astro'
   title="Marketing y contenido"
   tagline="Marketing y contenido"
   headline="Estrategia, contenido y ejecución. No solo ideas."
-  description="Desde la estrategia de marca hasta la grabación y publicación. Videos de marca personal, manejo de redes sociales, contenido que conecta con tu audiencia. Todo integrado con los objetivos de tu negocio — no contenido por llenar."
-  tags={["Estrategia de contenido", "Videos de marca personal", "Manejo de redes sociales", "Grabación y edición", "Posicionamiento de fundador", "Estrategia de marca"]}
+  description="Desde la estrategia de marca hasta la grabación y publicación. Videos de marca personal, manejo de redes sociales, contenido que conecta con tu audiencia. Todo integrado con los objetivos de tu negocio, no contenido por llenar."
+  tags={["Estrategia de contenido", "Videos de marca personal", "Manejo de redes sociales", "Grabación y edición", "Posicionamiento de fundador", "Estrategia de marca", "Guiones y narrativa"]}
   cta="¿Tu marca comunica lo que tu empresa realmente es?"
 >
-  <section class="px-5 pb-16">
-    <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-4">
-      <div class="bg-slate-950 text-white p-8 rounded-2xl">
-        <p class="text-xs text-slate-400 uppercase tracking-widest mb-3">Caso real</p>
-        <p class="font-bold text-lg mb-2">Green Earth</p>
-        <p class="text-sm text-slate-400 leading-relaxed">Producción de videos de marca personal para posicionar al fundador como referente en su industria. Estrategia de contenido + ejecución completa.</p>
+  <!-- Lo que hacemos -->
+  <section class="px-5 pb-12">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">Nuestro proceso</p>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="bg-slate-950 text-white p-7 rounded-2xl">
+          <p class="text-2xl font-black mb-3">01</p>
+          <p class="font-bold mb-2">Estrategia</p>
+          <p class="text-sm text-slate-400 leading-relaxed">Definimos qué comunicar, a quién, en qué tono. Creamos el plan de contenido alineado a los objetivos del negocio.</p>
+        </div>
+        <div class="bg-slate-950 text-white p-7 rounded-2xl">
+          <p class="text-2xl font-black mb-3">02</p>
+          <p class="font-bold mb-2">Producción</p>
+          <p class="text-sm text-slate-400 leading-relaxed">Grabamos, editamos y producimos. Videos de marca personal, contenido para redes, material para campañas. Todo listo para publicar.</p>
+        </div>
+        <div class="bg-slate-950 text-white p-7 rounded-2xl">
+          <p class="text-2xl font-black mb-3">03</p>
+          <p class="font-bold mb-2">Gestión</p>
+          <p class="text-sm text-slate-400 leading-relaxed">Publicamos, monitoreamos y ajustamos. Manejo completo de redes sociales con contenido constante que refleja la identidad real de tu marca.</p>
+        </div>
       </div>
-      <div class="bg-slate-950 text-white p-8 rounded-2xl">
-        <p class="text-xs text-slate-400 uppercase tracking-widest mb-3">Caso real</p>
-        <p class="font-bold text-lg mb-2">Natsu Life Bambú</p>
-        <p class="text-sm text-slate-400 leading-relaxed">Grabación, edición y gestión completa de redes sociales. Contenido constante que refleja la identidad real de la marca.</p>
+    </div>
+  </section>
+
+  <!-- Servicios específicos -->
+  <section class="px-5 pb-12">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">Qué incluye</p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-slate-50 border border-slate-100 p-6 rounded-2xl">
+          <p class="font-bold text-sm mb-2">Marca personal para fundadores</p>
+          <p class="text-slate-500 text-sm leading-relaxed">Posicionamos al líder de la empresa como referente en su industria. Guiones, grabación, edición y publicación.</p>
+        </div>
+        <div class="bg-slate-50 border border-slate-100 p-6 rounded-2xl">
+          <p class="font-bold text-sm mb-2">Manejo integral de redes</p>
+          <p class="text-slate-500 text-sm leading-relaxed">Desde la planeación hasta la publicación. Nos encargamos de todo: calendario editorial, creación de contenido, community management.</p>
+        </div>
+        <div class="bg-slate-50 border border-slate-100 p-6 rounded-2xl">
+          <p class="font-bold text-sm mb-2">Producción de video</p>
+          <p class="text-slate-500 text-sm leading-relaxed">Videos cortos y largos. Reels, entrevistas, testimoniales, contenido educativo. Grabación profesional y edición con narrativa.</p>
+        </div>
+        <div class="bg-slate-50 border border-slate-100 p-6 rounded-2xl">
+          <p class="font-bold text-sm mb-2">Estrategia de contenido</p>
+          <p class="text-slate-500 text-sm leading-relaxed">No publicamos por publicar. Cada pieza tiene un objetivo claro: posicionar, educar, generar confianza o convertir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portafolio / Casos -->
+  <section class="px-5 pb-16">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">Proyectos recientes</p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-slate-950 text-white p-8 rounded-2xl">
+          <p class="text-xs text-accent uppercase tracking-widest mb-3">Caso</p>
+          <p class="font-bold text-lg mb-2">Green Earth</p>
+          <p class="text-sm text-slate-400 leading-relaxed mb-4">Producción de videos de marca personal para posicionar al fundador como referente en su industria. Estrategia de contenido y ejecución completa.</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300">Video</span>
+            <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300">Marca personal</span>
+            <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300">Estrategia</span>
+          </div>
+        </div>
+        <div class="bg-slate-950 text-white p-8 rounded-2xl">
+          <p class="text-xs text-accent uppercase tracking-widest mb-3">Caso</p>
+          <p class="font-bold text-lg mb-2">Natsu Life Bambú</p>
+          <p class="text-sm text-slate-400 leading-relaxed mb-4">Grabación, edición y gestión completa de redes sociales. Contenido constante que refleja la identidad real de la marca.</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300">Redes sociales</span>
+            <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300">Grabación</span>
+            <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300">Edición</span>
+          </div>
+        </div>
+      </div>
+      <!-- Placeholder para videos futuros -->
+      <div class="mt-6 bg-slate-50 border border-dashed border-slate-200 rounded-2xl p-8 text-center">
+        <p class="text-slate-400 text-sm">Portafolio de videos en construcción. Agenda una llamada para ver ejemplos de nuestro trabajo.</p>
       </div>
     </div>
   </section>
