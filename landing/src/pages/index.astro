@@ -107,34 +107,27 @@ const calLink = "https://cal.com/andres-paez/30min"
               ¿Qué necesita tu empresa?
               <svg id="svc-chevron" class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
             </button>
-            <div id="svc-dropdown" class="svc-dropdown absolute left-0 top-full mt-2 w-72 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-40">
-              <a href="/servicios/diagnostico" class="svc-option px-5 py-3 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg></span>
-                <span class="text-sm font-medium">Diagnóstico organizacional</span>
+            <div id="svc-dropdown" class="svc-dropdown absolute left-0 top-full mt-2 w-80 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-40">
+              <a href="/servicios/diagnostico" class="svc-option px-5 py-3.5 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4.5 h-4.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg></span>
+                <div>
+                  <span class="text-sm font-semibold block">Consultoría y estructura</span>
+                  <span class="text-xs text-slate-400">Diagnóstico, procesos, gobernanza, cultura</span>
+                </div>
               </a>
-              <a href="/servicios/digitalizacion" class="svc-option px-5 py-3 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-accent flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></span>
-                <span class="text-sm font-medium">Digitalización y ERPs</span>
+              <a href="/servicios/digitalizacion" class="svc-option px-5 py-3.5 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-lg bg-accent flex items-center justify-center flex-shrink-0"><svg class="w-4.5 h-4.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></span>
+                <div>
+                  <span class="text-sm font-semibold block">Digitalización y automatización</span>
+                  <span class="text-xs text-slate-400">ERPs, agentes IA, integraciones</span>
+                </div>
               </a>
-              <a href="/servicios/procesos" class="svc-option px-5 py-3 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6z"/></svg></span>
-                <span class="text-sm font-medium">Procesos y estructura</span>
-              </a>
-              <a href="/servicios/gobernanza" class="svc-option px-5 py-3 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21"/></svg></span>
-                <span class="text-sm font-medium">Gobernanza</span>
-              </a>
-              <a href="/servicios/cultura" class="svc-option px-5 py-3 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584"/></svg></span>
-                <span class="text-sm font-medium">Cultura y liderazgo</span>
-              </a>
-              <a href="/servicios/marketing" class="svc-option px-5 py-3 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09"/></svg></span>
-                <span class="text-sm font-medium">Marketing y contenido</span>
-              </a>
-              <a href="/servicios/automatizacion" class="svc-option px-5 py-3 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-purple-600 flex items-center justify-center flex-shrink-0"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg></span>
-                <span class="text-sm font-medium">Automatización e IA</span>
+              <a href="/servicios/marketing" class="svc-option px-5 py-3.5 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-lg bg-slate-900 flex items-center justify-center flex-shrink-0"><svg class="w-4.5 h-4.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09"/></svg></span>
+                <div>
+                  <span class="text-sm font-semibold block">Marketing y contenido</span>
+                  <span class="text-xs text-slate-400">Redes, video, marca personal</span>
+                </div>
               </a>
             </div>
           </div>
@@ -151,60 +144,78 @@ const calLink = "https://cal.com/andres-paez/30min"
       </div>
     </div>
 
-    <!-- SERVICIOS -->
+    <!-- SERVICIOS — 3 bloques -->
     <section id="servicios" class="py-20 sm:py-24 px-5">
       <div class="max-w-6xl mx-auto">
         <div class="reveal max-w-2xl mb-12">
-          <p class="text-xs font-semibold text-accent uppercase tracking-widest mb-2">Qué hacemos</p>
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">Todo en una empresa está conectado.<br/><span class="text-slate-400">Así lo trabajamos.</span></h2>
+          <p class="text-xs font-semibold text-accent uppercase tracking-widest mb-2">Nuestros servicios</p>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">¿Qué estás buscando?</h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-          <div class="reveal reveal-d1 card-lift glow-card rounded-2xl bg-slate-950 text-white p-7 sm:p-8 flex flex-col justify-between min-h-[240px]">
-            <div class="flex items-start justify-between">
-              <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <!-- 1. Consultoría y estructura -->
+          <a href="/servicios/diagnostico" class="reveal reveal-d1 group card-lift glow-card rounded-2xl bg-slate-950 text-white p-7 sm:p-8 flex flex-col justify-between min-h-[300px]">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-5">
                 <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
               </div>
-              <span class="text-6xl font-black text-white/[0.04] leading-none">01</span>
+              <h3 class="text-xl font-bold mb-2">Consultoría y estructura</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-5">Diagnóstico, procesos, gobernanza, cultura, liderazgo, roles. Todo lo que necesitas para que tu empresa funcione por sistema, no por esfuerzo.</p>
             </div>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300">Diagnóstico</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300">Procesos</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300">Gobernanza</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300">Cultura</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-medium text-slate-300">Liderazgo</span>
+            </div>
+            <span class="inline-flex items-center gap-2 text-sm font-semibold text-accent group-hover:gap-3 transition-all">
+              Ver más
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </span>
+          </a>
+
+          <!-- 2. Digitalización y automatización -->
+          <a href="/servicios/digitalizacion" class="reveal reveal-d2 group card-lift glow-card rounded-2xl bg-accent text-white p-7 sm:p-8 flex flex-col justify-between min-h-[300px]">
             <div>
-              <h3 class="text-lg font-bold mb-1.5">Diagnóstico organizacional</h3>
-              <p class="text-slate-400 text-sm leading-relaxed">Entendemos cómo funciona tu negocio de verdad — cómo vende, cobra, opera, decide.</p>
-            </div>
-          </div>
-          <div class="reveal reveal-d2 card-lift glow-card rounded-2xl bg-accent text-white p-7 sm:p-8 flex flex-col justify-between min-h-[240px]">
-            <div class="flex items-start justify-between">
-              <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+              <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-5">
                 <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               </div>
-              <span class="text-6xl font-black text-white/10 leading-none">02</span>
+              <h3 class="text-xl font-bold mb-2">Digitalización y automatización</h3>
+              <p class="text-white/75 text-sm leading-relaxed mb-5">ERPs, sistemas, agentes con IA, automatización de flujos. Herramientas que realmente se usan y transforman tu operación.</p>
             </div>
-            <div>
-              <h3 class="text-lg font-bold mb-1.5">Digitalización y ERPs</h3>
-              <p class="text-white/75 text-sm leading-relaxed">Odoo, automatizaciones, herramientas reales. Implementamos con el equipo.</p>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="px-2.5 py-1 rounded-full bg-white/15 text-[11px] font-medium text-white/80">ERPs / Odoo</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/15 text-[11px] font-medium text-white/80">Automatización</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/15 text-[11px] font-medium text-white/80">Agentes IA</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/15 text-[11px] font-medium text-white/80">Integraciones</span>
             </div>
-          </div>
-        </div>
+            <span class="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all">
+              Ver más
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </span>
+          </a>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          {[
-            { icon: "M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z", title: "Procesos", desc: "Flujos claros. Roles definidos." },
-            { icon: "M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21", title: "Gobernanza", desc: "Decisiones con estructura." },
-            { icon: "M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z", title: "Cultura y liderazgo", desc: "El lado humano del cambio." },
-            { icon: "M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z", title: "Talento y roles", desc: "Cada persona sabe su rol." },
-            { icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z", title: "Claridad financiera", desc: "Decisiones con datos reales." },
-            { icon: "M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46", title: "Marketing", desc: "Estrategia, contenido, redes, video." },
-          ].map((s, i) => (
-            <div class={`reveal reveal-d${Math.min(i + 1, 6)} card-lift rounded-2xl bg-slate-50 p-6 min-h-[170px] flex flex-col justify-between border border-slate-100`}>
-              <div class="w-10 h-10 rounded-lg bg-slate-900 flex items-center justify-center mb-4">
-                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={s.icon}/></svg>
+          <!-- 3. Marketing y contenido -->
+          <a href="/servicios/marketing" class="reveal reveal-d3 group card-lift rounded-2xl bg-slate-50 border border-slate-100 p-7 sm:p-8 flex flex-col justify-between min-h-[300px]">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center mb-5">
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46"/></svg>
               </div>
-              <div>
-                <h3 class="font-bold text-sm mb-0.5">{s.title}</h3>
-                <p class="text-slate-500 text-[13px] leading-relaxed">{s.desc}</p>
-              </div>
+              <h3 class="text-xl font-bold mb-2">Marketing y contenido</h3>
+              <p class="text-slate-500 text-sm leading-relaxed mb-5">Estrategia de marca, videos, redes sociales, marca personal. Contenido que conecta y posiciona, no que llena espacio.</p>
             </div>
-          ))}
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="px-2.5 py-1 rounded-full bg-slate-200/60 text-[11px] font-medium text-slate-600">Redes sociales</span>
+              <span class="px-2.5 py-1 rounded-full bg-slate-200/60 text-[11px] font-medium text-slate-600">Video</span>
+              <span class="px-2.5 py-1 rounded-full bg-slate-200/60 text-[11px] font-medium text-slate-600">Marca personal</span>
+              <span class="px-2.5 py-1 rounded-full bg-slate-200/60 text-[11px] font-medium text-slate-600">Estrategia</span>
+            </div>
+            <span class="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 group-hover:gap-3 transition-all">
+              Ver más
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </span>
+          </a>
         </div>
       </div>
     </section>
