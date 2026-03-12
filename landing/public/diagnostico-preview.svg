@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 480" fill="none">
+  <!-- Document shadow -->
+  <rect x="18" y="18" width="644" height="444" rx="8" fill="#e2e8f0"/>
+  <!-- Document -->
+  <rect x="14" y="14" width="644" height="444" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Top bar -->
+  <rect x="14" y="14" width="644" height="56" rx="8" fill="#0f172a"/>
+  <rect x="14" y="50" width="644" height="20" fill="#0f172a"/>
+  <text x="44" y="49" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="900" fill="white" letter-spacing="-0.5">CURVA<tspan fill="#2563eb">.</tspan></text>
+  <text x="620" y="47" text-anchor="end" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#64748b">CONFIDENCIAL</text>
+
+  <!-- Title section -->
+  <text x="44" y="100" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="800" fill="#0f172a">Reporte de Diagnostico</text>
+  <text x="44" y="120" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#64748b">Evaluacion integral  |  Marzo 2026</text>
+  <line x1="44" y1="132" x2="636" y2="132" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- Score section -->
+  <text x="44" y="160" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#94a3b8" letter-spacing="1.5">INDICE DE MADUREZ ORGANIZACIONAL</text>
+
+  <!-- Score bars -->
+  <text x="44" y="190" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#374151">Estructura</text>
+  <rect x="160" y="180" width="400" height="14" rx="7" fill="#f1f5f9"/>
+  <rect x="160" y="180" width="120" height="14" rx="7" fill="#ef4444"/>
+  <text x="572" y="191" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="#ef4444">30%</text>
+
+  <text x="44" y="216" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#374151">Procesos</text>
+  <rect x="160" y="206" width="400" height="14" rx="7" fill="#f1f5f9"/>
+  <rect x="160" y="206" width="180" height="14" rx="7" fill="#f59e0b"/>
+  <text x="572" y="217" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="#f59e0b">45%</text>
+
+  <text x="44" y="242" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#374151">Gobernanza</text>
+  <rect x="160" y="232" width="400" height="14" rx="7" fill="#f1f5f9"/>
+  <rect x="160" y="232" width="80" height="14" rx="7" fill="#ef4444"/>
+  <text x="572" y="243" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="#ef4444">20%</text>
+
+  <text x="44" y="268" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#374151">Digitalizacion</text>
+  <rect x="160" y="258" width="400" height="14" rx="7" fill="#f1f5f9"/>
+  <rect x="160" y="258" width="140" height="14" rx="7" fill="#f59e0b"/>
+  <text x="572" y="269" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="#f59e0b">35%</text>
+
+  <text x="44" y="294" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#374151">Cultura</text>
+  <rect x="160" y="284" width="400" height="14" rx="7" fill="#f1f5f9"/>
+  <rect x="160" y="284" width="220" height="14" rx="7" fill="#f59e0b"/>
+  <text x="572" y="295" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="#f59e0b">55%</text>
+
+  <text x="44" y="320" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#374151">Finanzas</text>
+  <rect x="160" y="310" width="400" height="14" rx="7" fill="#f1f5f9"/>
+  <rect x="160" y="310" width="160" height="14" rx="7" fill="#f59e0b"/>
+  <text x="572" y="321" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="#f59e0b">40%</text>
+
+  <!-- Bottom section -->
+  <line x1="44" y1="340" x2="636" y2="340" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- Key findings -->
+  <text x="44" y="365" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#94a3b8" letter-spacing="1.5">HALLAZGOS PRIORITARIOS</text>
+
+  <rect x="44" y="378" width="8" height="8" rx="2" fill="#ef4444"/>
+  <text x="60" y="386" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#374151">Alta dependencia del fundador en decisiones operativas</text>
+
+  <rect x="44" y="398" width="8" height="8" rx="2" fill="#ef4444"/>
+  <text x="60" y="406" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#374151">Ausencia de procesos documentados en areas clave</text>
+
+  <rect x="44" y="418" width="8" height="8" rx="2" fill="#f59e0b"/>
+  <text x="60" y="426" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#374151">Oportunidad de digitalizacion con impacto inmediato en ventas</text>
+
+  <!-- Blur overlay at bottom -->
+  <rect x="14" y="400" width="644" height="58" rx="0" fill="white" fill-opacity="0.7"/>
+  <rect x="14" y="440" width="644" height="18" rx="0 0 8 8" fill="white"/>
+
+  <!-- Page number -->
+  <text x="336" y="452" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#cbd5e1">1 / 12</text>
+</svg>

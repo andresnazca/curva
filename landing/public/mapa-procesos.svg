@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 480" fill="none">
+  <defs>
+    <filter id="s" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="480" rx="12" fill="#fafbfc"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="680" height="44" rx="12" fill="#0f172a"/>
+  <rect x="0" y="20" width="680" height="24" fill="#0f172a"/>
+  <text x="340" y="28" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="2">MAPA DE PROCESOS CLAVE</text>
+
+  <!-- Row labels -->
+  <text x="40" y="76" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600" fill="#94a3b8" letter-spacing="1">FLUJO OPERATIVO ESTANDARIZADO</text>
+
+  <!-- Row 1: COMERCIAL -->
+  <rect x="40" y="92" width="88" height="36" rx="7" fill="#2563eb"/>
+  <text x="84" y="114" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="white">Comercial</text>
+
+  <line x1="128" y1="110" x2="146" y2="110" stroke="#cbd5e1" stroke-width="1.5"/>
+  <polygon points="144,106 152,110 144,114" fill="#cbd5e1"/>
+
+  <rect x="154" y="92" width="100" height="36" rx="7" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="204" y="107" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#374151">Prospeccion</text>
+  <text x="204" y="119" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">Leads calificados</text>
+
+  <line x1="254" y1="110" x2="272" y2="110" stroke="#cbd5e1" stroke-width="1.5"/>
+  <polygon points="270,106 278,110 270,114" fill="#cbd5e1"/>
+
+  <rect x="280" y="92" width="100" height="36" rx="7" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="330" y="107" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#374151">Cotizacion</text>
+  <text x="330" y="119" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">Propuesta + precio</text>
+
+  <line x1="380" y1="110" x2="398" y2="110" stroke="#cbd5e1" stroke-width="1.5"/>
+  <polygon points="396,106 404,110 396,114" fill="#cbd5e1"/>
+
+  <rect x="406" y="92" width="100" height="36" rx="7" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="456" y="107" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#374151">Cierre</text>
+  <text x="456" y="119" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">Contrato firmado</text>
+
+  <line x1="506" y1="110" x2="524" y2="110" stroke="#cbd5e1" stroke-width="1.5"/>
+  <polygon points="522,106 530,110 522,114" fill="#cbd5e1"/>
+
+  <rect x="532" y="92" width="100" height="36" rx="7" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="582" y="107" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#374151">Seguimiento</text>
+  <text x="582" y="119" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">Retencion + upsell</text>
+
+  <!-- Green check -->
+  <circle cx="650" cy="110" r="10" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+  <path d="M644 110 L648 114 L656 106" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Row 2: OPERACIONES -->
+  <rect x="40" y="150" width="88" height="36" rx="7" fill="#0f172a"/>
+  <text x="84" y="172" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="white">Operaciones</text>
+
+  <line x1="128" y1="168" x2="146" y2="168" stroke="#cbd5e1" stroke-width="1.5"/>
+  <polygon points="144,164 152,168 144,172" fill="#cbd5e1"/>
+
+  <rect x="154" y="150" width="100" height="36" rx="7" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="204" y="165" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#374151">Onboarding</text>
+  <text x="204" y="177" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">Kick-off + alcance</text>
+
+  <line x1="254" y1="168" x2="272" y2="168" stroke="#cbd5e1" stroke-width="1.5"/>
+  <polygon points="270,164 278,168 270,172" fill="#cbd5e1"/>
+
+  <rect x="280" y="150" width="100" height="36" rx="7" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="330" y="165" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#374151">Ejecucion</text>
+  <text x="330" y="177" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">Entregables + sprints</text>
+
+  <line x1="380" y1="168" x2="398" y2="168" stroke="#cbd5e1" stroke-width="1.5"/>
+  <polygon points="396,164 404,168 396,172" fill="#cbd5e1"/>
+
+  <rect x="406" y="150" width="100" height="36" rx="7" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="456" y="165" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#374151">Revision QA</text>
+  <text x="456" y="177" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">Control + feedback</text>
+
+  <line x1="506" y1="168" x2="524" y2="168" stroke="#cbd5e1" stroke-width="1.5"/>
+  <polygon points="522,164 530,168 522,172" fill="#cbd5e1"/>
+
+  <rect x="532" y="150" width="100" height="36" rx="7" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="582" y="165" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#374151">Entrega</text>
+  <text x="582" y="177" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">Cierre de proyecto</text>
+
+  <circle cx="650" cy="168" r="10" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+  <path d="M644 168 L648 172 L656 164" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Row 3: FINANZAS -->
+  <rect x="40" y="208" width="88" height="36" rx="7" fill="#475569"/>
+  <text x="84" y="230" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="white">Finanzas</text>
+
+  <line x1="128" y1="226" x2="146" y2="226" stroke="#cbd5e1" stroke-width="1.5"/>
+  <polygon points="144,222 152,226 144,230" fill="#cbd5e1"/>
+
+  <rect x="154" y="208" width="100" height="36" rx="7" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="204" y="223" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#374151">Facturacion</text>
+  <text x="204" y="235" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">CFDI + cobro</text>
+
+  <line x1="254" y1="226" x2="272" y2="226" stroke="#cbd5e1" stroke-width="1.5"/>
+  <polygon points="270,222 278,226 270,230" fill="#cbd5e1"/>
+
+  <rect x="280" y="208" width="100" height="36" rx="7" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="330" y="223" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#374151">Control</text>
+  <text x="330" y="235" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">Gastos + flujo</text>
+
+  <line x1="380" y1="226" x2="398" y2="226" stroke="#cbd5e1" stroke-width="1.5"/>
+  <polygon points="396,222 404,226 396,230" fill="#cbd5e1"/>
+
+  <rect x="406" y="208" width="100" height="36" rx="7" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="456" y="223" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#374151">Reportes</text>
+  <text x="456" y="235" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">P&amp;L + dashboards</text>
+
+  <line x1="506" y1="226" x2="524" y2="226" stroke="#cbd5e1" stroke-width="1.5"/>
+  <polygon points="522,222 530,226 522,230" fill="#cbd5e1"/>
+
+  <rect x="532" y="208" width="100" height="36" rx="7" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="582" y="223" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#374151">Cierre mensual</text>
+  <text x="582" y="235" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">Conciliacion</text>
+
+  <circle cx="650" cy="226" r="10" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+  <path d="M644 226 L648 230 L656 222" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Divider -->
+  <line x1="40" y1="264" x2="640" y2="264" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- KPIs section -->
+  <text x="40" y="288" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600" fill="#94a3b8" letter-spacing="1.5">INDICADORES POR PROCESO</text>
+
+  <!-- KPI cards -->
+  <rect x="40" y="302" width="140" height="64" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="110" y="322" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7.5" font-weight="600" fill="#64748b">Tasa de cierre</text>
+  <text x="95" y="350" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="800" fill="#0f172a">34%</text>
+  <text x="126" y="350" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#22c55e">+8%</text>
+
+  <rect x="200" y="302" width="140" height="64" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="270" y="322" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7.5" font-weight="600" fill="#64748b">Tiempo de entrega</text>
+  <text x="255" y="350" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="800" fill="#0f172a">18d</text>
+  <text x="282" y="350" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#22c55e">-5d</text>
+
+  <rect x="360" y="302" width="140" height="64" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="430" y="322" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7.5" font-weight="600" fill="#64748b">Sat. del cliente</text>
+  <text x="415" y="350" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="800" fill="#0f172a">4.7</text>
+  <text x="442" y="350" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="500" fill="#94a3b8">/ 5.0</text>
+
+  <rect x="520" y="302" width="120" height="64" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#s)"/>
+  <text x="580" y="322" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7.5" font-weight="600" fill="#64748b">Margen bruto</text>
+  <text x="565" y="350" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="800" fill="#0f172a">42%</text>
+  <text x="592" y="350" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#22c55e">+3%</text>
+
+  <!-- Status bar -->
+  <rect x="40" y="386" width="600" height="38" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="62" cy="405" r="4" fill="#22c55e"/>
+  <text x="74" y="408" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#374151">12 procesos documentados</text>
+  <circle cx="230" cy="405" r="4" fill="#22c55e"/>
+  <text x="242" y="408" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#374151">3 areas integradas</text>
+  <circle cx="380" cy="405" r="4" fill="#f59e0b"/>
+  <text x="392" y="408" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#374151">2 en optimizacion</text>
+  <circle cx="530" cy="405" r="4" fill="#22c55e"/>
+  <text x="542" y="408" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#374151">SLAs definidos</text>
+
+  <!-- Footer -->
+  <text x="340" y="456" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7.5" fill="#cbd5e1">Mapa de procesos  |  Metodologia propia  |  Actualizado Marzo 2026</text>
+</svg>

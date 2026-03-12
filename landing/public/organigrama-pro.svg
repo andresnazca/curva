@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 480" fill="none">
+  <defs>
+    <filter id="s" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="480" rx="12" fill="#fafbfc"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="680" height="44" rx="12" fill="#0f172a"/>
+  <rect x="0" y="20" width="680" height="24" fill="#0f172a"/>
+  <text x="340" y="28" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="2">ORGANIGRAMA FUNCIONAL</text>
+
+  <!-- CEO -->
+  <rect x="255" y="62" width="170" height="44" rx="10" fill="#0f172a" filter="url(#s)"/>
+  <text x="340" y="82" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" fill="white">Director General</text>
+  <text x="340" y="97" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748b">Fundador / CEO</text>
+
+  <!-- Line from CEO down -->
+  <line x1="340" y1="106" x2="340" y2="124" stroke="#e2e8f0" stroke-width="1.5"/>
+  <!-- Horizontal connector -->
+  <line x1="110" y1="124" x2="570" y2="124" stroke="#e2e8f0" stroke-width="1.5"/>
+  <!-- Vertical drops to 3 divisions -->
+  <line x1="110" y1="124" x2="110" y2="138" stroke="#e2e8f0" stroke-width="1.5"/>
+  <line x1="340" y1="124" x2="340" y2="138" stroke="#e2e8f0" stroke-width="1.5"/>
+  <line x1="570" y1="124" x2="570" y2="138" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Division 1: Comercial -->
+  <rect x="40" y="138" width="140" height="40" rx="8" fill="#2563eb" filter="url(#s)"/>
+  <text x="110" y="157" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" fill="white">Comercial</text>
+  <text x="110" y="170" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7.5" fill="#93c5fd">Ventas y crecimiento</text>
+
+  <!-- Division 2: Operaciones -->
+  <rect x="270" y="138" width="140" height="40" rx="8" fill="#0f172a" filter="url(#s)"/>
+  <text x="340" y="157" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" fill="white">Operaciones</text>
+  <text x="340" y="170" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7.5" fill="#94a3b8">Entrega y servicio</text>
+
+  <!-- Division 3: Admin y Finanzas -->
+  <rect x="500" y="138" width="140" height="40" rx="8" fill="#475569" filter="url(#s)"/>
+  <text x="570" y="157" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" fill="white">Administracion</text>
+  <text x="570" y="170" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7.5" fill="#cbd5e1">Finanzas y soporte</text>
+
+  <!-- Comercial sub-lines -->
+  <line x1="110" y1="178" x2="110" y2="194" stroke="#93c5fd" stroke-width="1"/>
+  <line x1="55" y1="194" x2="165" y2="194" stroke="#93c5fd" stroke-width="1"/>
+  <line x1="55" y1="194" x2="55" y2="202" stroke="#93c5fd" stroke-width="1"/>
+  <line x1="165" y1="194" x2="165" y2="202" stroke="#93c5fd" stroke-width="1"/>
+
+  <rect x="16" y="202" width="78" height="36" rx="7" fill="white" filter="url(#s)" stroke="#dbeafe" stroke-width="1"/>
+  <text x="55" y="218" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#1e3a5f">Ventas</text>
+  <text x="55" y="230" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">4 personas</text>
+
+  <rect x="126" y="202" width="78" height="36" rx="7" fill="white" filter="url(#s)" stroke="#dbeafe" stroke-width="1"/>
+  <text x="165" y="218" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#1e3a5f">Cobranza</text>
+  <text x="165" y="230" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">2 personas</text>
+
+  <!-- Ventas team dots -->
+  <line x1="55" y1="238" x2="55" y2="250" stroke="#dbeafe" stroke-width="1"/>
+  <line x1="28" y1="250" x2="82" y2="250" stroke="#dbeafe" stroke-width="1"/>
+  <circle cx="28" cy="260" r="8" fill="#eff6ff" stroke="#dbeafe" stroke-width="1"/>
+  <circle cx="46" cy="260" r="8" fill="#eff6ff" stroke="#dbeafe" stroke-width="1"/>
+  <circle cx="64" cy="260" r="8" fill="#eff6ff" stroke="#dbeafe" stroke-width="1"/>
+  <circle cx="82" cy="260" r="8" fill="#eff6ff" stroke="#dbeafe" stroke-width="1"/>
+  <line x1="28" y1="250" x2="28" y2="252" stroke="#dbeafe" stroke-width="1"/>
+  <line x1="46" y1="250" x2="46" y2="252" stroke="#dbeafe" stroke-width="1"/>
+  <line x1="64" y1="250" x2="64" y2="252" stroke="#dbeafe" stroke-width="1"/>
+  <line x1="82" y1="250" x2="82" y2="252" stroke="#dbeafe" stroke-width="1"/>
+
+  <!-- Cobranza team dots -->
+  <line x1="165" y1="238" x2="165" y2="250" stroke="#dbeafe" stroke-width="1"/>
+  <line x1="153" y1="250" x2="177" y2="250" stroke="#dbeafe" stroke-width="1"/>
+  <circle cx="153" cy="260" r="8" fill="#eff6ff" stroke="#dbeafe" stroke-width="1"/>
+  <circle cx="177" cy="260" r="8" fill="#eff6ff" stroke="#dbeafe" stroke-width="1"/>
+  <line x1="153" y1="250" x2="153" y2="252" stroke="#dbeafe" stroke-width="1"/>
+  <line x1="177" y1="250" x2="177" y2="252" stroke="#dbeafe" stroke-width="1"/>
+
+  <!-- Operaciones sub-lines -->
+  <line x1="340" y1="178" x2="340" y2="194" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="280" y1="194" x2="400" y2="194" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="280" y1="194" x2="280" y2="202" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="400" y1="194" x2="400" y2="202" stroke="#94a3b8" stroke-width="1"/>
+
+  <rect x="241" y="202" width="78" height="36" rx="7" fill="white" filter="url(#s)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="280" y="218" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#1e293b">Produccion</text>
+  <text x="280" y="230" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">3 personas</text>
+
+  <rect x="361" y="202" width="78" height="36" rx="7" fill="white" filter="url(#s)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="400" y="218" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#1e293b">Logistica</text>
+  <text x="400" y="230" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">2 personas</text>
+
+  <!-- Produccion team dots -->
+  <line x1="280" y1="238" x2="280" y2="250" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="262" y1="250" x2="298" y2="250" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="262" cy="260" r="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="280" cy="260" r="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="298" cy="260" r="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="262" y1="250" x2="262" y2="252" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="280" y1="250" x2="280" y2="252" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="298" y1="250" x2="298" y2="252" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Logistica team dots -->
+  <line x1="400" y1="238" x2="400" y2="250" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="388" y1="250" x2="412" y2="250" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="388" cy="260" r="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="412" cy="260" r="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="388" y1="250" x2="388" y2="252" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="412" y1="250" x2="412" y2="252" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Admin sub-lines -->
+  <line x1="570" y1="178" x2="570" y2="194" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="510" y1="194" x2="630" y2="194" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="510" y1="194" x2="510" y2="202" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="630" y1="194" x2="630" y2="202" stroke="#94a3b8" stroke-width="1"/>
+
+  <rect x="471" y="202" width="78" height="36" rx="7" fill="white" filter="url(#s)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="510" y="218" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#1e293b">Finanzas</text>
+  <text x="510" y="230" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">2 personas</text>
+
+  <rect x="591" y="202" width="78" height="36" rx="7" fill="white" filter="url(#s)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="630" y="218" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#1e293b">RRHH</text>
+  <text x="630" y="230" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#94a3b8">1 persona</text>
+
+  <!-- Finanzas team dots -->
+  <line x1="510" y1="238" x2="510" y2="250" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="498" y1="250" x2="522" y2="250" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="498" cy="260" r="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="522" cy="260" r="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="498" y1="250" x2="498" y2="252" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="522" y1="250" x2="522" y2="252" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- RRHH team dot -->
+  <line x1="630" y1="238" x2="630" y2="252" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="630" cy="260" r="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Divider -->
+  <line x1="30" y1="290" x2="650" y2="290" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- Stats row -->
+  <text x="340" y="314" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600" fill="#94a3b8" letter-spacing="1.5">RESUMEN ORGANIZACIONAL</text>
+
+  <rect x="40" y="330" width="135" height="56" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="107" y="354" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="800" fill="#0f172a">3</text>
+  <text x="107" y="374" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748b" font-weight="500">Direcciones</text>
+
+  <rect x="195" y="330" width="135" height="56" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="262" y="354" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="800" fill="#0f172a">6</text>
+  <text x="262" y="374" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748b" font-weight="500">Jefaturas definidas</text>
+
+  <rect x="350" y="330" width="135" height="56" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="417" y="354" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="800" fill="#0f172a">14</text>
+  <text x="417" y="374" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748b" font-weight="500">Posiciones totales</text>
+
+  <rect x="505" y="330" width="135" height="56" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="572" y="354" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="800" fill="#22c55e">100%</text>
+  <text x="572" y="374" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748b" font-weight="500">Roles con responsable</text>
+
+  <!-- Status pills -->
+  <rect x="40" y="405" width="600" height="36" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="62" cy="423" r="4" fill="#22c55e"/>
+  <text x="74" y="426" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#374151">Roles documentados</text>
+  <circle cx="210" cy="423" r="4" fill="#22c55e"/>
+  <text x="222" y="426" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#374151">Responsables asignados</text>
+  <circle cx="380" cy="423" r="4" fill="#22c55e"/>
+  <text x="392" y="426" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#374151">KPIs por posicion</text>
+  <circle cx="520" cy="423" r="4" fill="#22c55e"/>
+  <text x="532" y="426" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#374151">Lineas de reporte claras</text>
+
+  <!-- Footer -->
+  <text x="340" y="462" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7.5" fill="#cbd5e1">Organigrama funcional  |  Actualizado Marzo 2026</text>
+</svg>
